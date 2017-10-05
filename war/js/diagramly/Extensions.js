@@ -110,6 +110,11 @@
 		'iOSDeviceiPadProLandscape'
 	];
 	
+	//stencils to rotate clockwise 180 degrees
+	var rcw2 = [
+		'fpDoor'
+	];
+	
 	var edgeStyleMap = {
 						'None': 'none',
 						'Arrow': 'block;endFill=1',
@@ -287,10 +292,10 @@
 			'MindMapOctagonBlock' : s + 'basic.octagon',
 			'MindMapCrossBlock' : s + 'basic.cross2;dx=20',
 //Entity Relationship
-			'ERDEntityBlock' : cs, //TODO
-			'ERDEntityBlock2' : cs, //TODO
-			'ERDEntityBlock3' : cs, //TODO
-			'ERDEntityBlock4' : cs, //TODO
+			'ERDEntityBlock' : cs,
+			'ERDEntityBlock2' : cs,
+			'ERDEntityBlock3' : cs,
+			'ERDEntityBlock4' : cs,
 //Site Maps
 			'SMPage'  : cs,
 			'SMHome'  : cs,
@@ -326,7 +331,7 @@
 //			'SMSlideshow' NA
 			'SMUpload'  : cs,
 //UML Class Diagram
-			'UMLClassBlock': '',
+			'UMLClassBlock': cs,
 			'UMLActiveClassBlock': 'shape=process',
 			'UMLMultiplicityBlock' : cs,
 			'UMLPackageBlock': 'shape=folder;tabPosition=left',
@@ -451,265 +456,266 @@
 			'VSMPushArrow' : s + 'lean_mapping.push_arrow',
 //			'VSMElectronicInformationArrow' : s + 'lean_mapping.electronic_info_flow_edge;', //TODO
 //EC2
-			'AWSElasticComputeCloudBlock2' : ss + 'aws3.ec2',
+			'AWSElasticComputeCloudBlock2' : cs,
+//			'AWSElasticComputeCloudBlock2' : ss + 'aws3.ec2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			'AWSInstanceBlock2' : ss + 'aws3.instance',
-			'AWSInstancesBlock2' : ss + 'aws3.instances',
-			'AWSAMIBlock2' : ss + 'aws3.ami',
-			'AWSDBonInstanceBlock2' : ss + 'aws3.db_on_instance',
-			'AWSInstanceCloudWatchBlock2' : ss + 'aws3.instance_with_cloudwatch',
-			'AWSElasticIPBlock2' : ss + 'aws3.elastic_ip',
-			'AWSHDFSClusterBlock2' : ss + 'aws3.hdfs_cluster',
-			'AWSAutoScalingBlock2' : ss + 'aws3.auto_scaling',
-			'AWSEC2OptimizedInstance2' : ss + 'aws3.optimized_instance',
-			'AWSAmazonEC2(Spotinstance)' : ss + 'aws3.spot_instance',
-			'AWSAmazonECR' : ss + 'aws3.ecr',
-			'AWSAmazonECS' : ss + 'aws3.ecs',
-			'AWSLambda2' : ss + 'aws3.lambda',
-			'AWSElasticLoadBalancing' : ss + 'aws3.elastic_load_balancing',
+			'AWSInstancesBlock2' : ss + 'aws3.instances;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAMIBlock2' : ss + 'aws3.ami;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDBonInstanceBlock2' : ss + 'aws3.db_on_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSInstanceCloudWatchBlock2' : ss + 'aws3.instance_with_cloudwatch;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElasticIPBlock2' : ss + 'aws3.elastic_ip;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSHDFSClusterBlock2' : ss + 'aws3.hdfs_cluster;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAutoScalingBlock2' : ss + 'aws3.auto_scaling;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEC2OptimizedInstance2' : ss + 'aws3.optimized_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonEC2(Spotinstance)' : ss + 'aws3.spot_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonECR' : ss + 'aws3.ecr;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonECS' : ss + 'aws3.ecs;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSLambda2' : ss + 'aws3.lambda;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElasticLoadBalancing' : ss + 'aws3.elastic_load_balancing;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Networking
-			'AWSElasticLoadBlock2' : ss + 'aws3.classic_load_balancer',
-			'AWSDirectConnectBlock3' : ss + 'aws3.direct_connect',
-			'AWSElasticNetworkBlock2' : ss + 'aws3.elastic_network_interface',
-			'AWSRoute53Block2' : ss + 'aws3.route_53',
+			'AWSElasticLoadBlock2' : ss + 'aws3.classic_load_balancer;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDirectConnectBlock3' : ss + 'aws3.direct_connect;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElasticNetworkBlock2' : ss + 'aws3.elastic_network_interface;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRoute53Block2' : cs,
 			'AWSHostedZoneBlock2' : ss + 'aws3.hosted_zone;fontColor=#FFFFFF;fontStyle=1',
-			'AWSRouteTableBlock2' : ss + 'aws3.route_table',
-			'AWSVPCBlock2' : ss + 'aws3.vpc',
-			'AWSVPNConnectionBlock2' : ss + 'aws3.vpn_connection',
-			'AWSVPNGatewayBlock2' : ss + 'aws3.vpn_gateway',
-			'AWSCustomerGatewayBlock2' : ss + 'aws3.customer_gateway',
-			'AWSCustomerGatewayBlock3' : ss + 'aws3.customer_gateway',
-			'AWSInternetGatewayBlock2' : ss + 'aws3.internet_gateway',
-			'AWSRouterBlock2' : ss + 'aws3.router',
-			'AWSRouterBlock3' : ss + 'aws3.router',
-			'AWSAmazonVPC(endpoints)' : ss + 'aws3.endpoints',
-			'AWSAmazonVPC(flowlogs)' : ss + 'aws3.flow_logs',
-			'AWSAmazonVPC(VPCNATgateway)' : ss + 'aws3.vpc_nat_gateway',
-			'AWSVPCPeering3' : ss + 'aws3.vpc_peering',
+			'AWSRouteTableBlock2' : ss + 'aws3.route_table;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVPCBlock2' : ss + 'aws3.vpc;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVPNConnectionBlock2' : ss + 'aws3.vpn_connection;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVPNGatewayBlock2' : ss + 'aws3.vpn_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCustomerGatewayBlock2' : ss + 'aws3.customer_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCustomerGatewayBlock3' : ss + 'aws3.customer_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSInternetGatewayBlock2' : ss + 'aws3.internet_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRouterBlock2' : ss + 'aws3.router;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRouterBlock3' : ss + 'aws3.router;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonVPC(endpoints)' : ss + 'aws3.endpoints;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonVPC(flowlogs)' : ss + 'aws3.flow_logs;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonVPC(VPCNATgateway)' : ss + 'aws3.vpc_nat_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVPCPeering3' : ss + 'aws3.vpc_peering;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			
 //S3
-			'AWSSimpleStorageBlock2' : ss + 'aws3.s3',
+			'AWSSimpleStorageBlock2' : ss + 'aws3.s3;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			'AWSBucketBlock2' : ss + 'aws3.bucket;fontStyle=1;fontColor=#ffffff',
-			'AWSBuckethWithObjectsBlock2' : ss + 'aws3.bucket_with_objects',
+			'AWSBuckethWithObjectsBlock2' : ss + 'aws3.bucket_with_objects;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			'AWSObjectBlock2' : ss + 'aws3.object;fontStyle=1;fontColor=#ffffff',
-			'AWSImportExportBlock2' : ss + 'aws3.import_export',
-			'AWSStorageGatewayBlock2' : ss + 'aws3.storage_gateway',
+			'AWSImportExportBlock2' : ss + 'aws3.import_export;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStorageGatewayBlock2' : ss + 'aws3.storage_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			'AWSElasticBlockStorageBlock2' : ss + 'aws3.volume;fontStyle=1;fontColor=#ffffff',
 			'AWSVolumeBlock3' : ss + 'aws3.volume;fontStyle=1;fontColor=#ffffff',
 			'AWSSnapshotBlock2' : ss + 'aws3.snapshot;fontStyle=1;fontColor=#ffffff',
-			'AWSGlacierArchiveBlock3' : ss + 'aws3.archive',
-			'AWSGlacierVaultBlock3' : ss + 'aws3.vault',
-			'AWSAmazonEFS' : ss + 'aws3.efs',
-			'AWSGlacierBlock2' : ss + 'aws3.glacier',
-			'AWSAWSImportExportSnowball' : ss + 'aws3.snowball',
-			'AWSStorageGatewayCachedVolumn2' : ss + 'aws3.cached_volume',
-			'AWSStorageGatewayNon-CachedVolumn2' : ss + 'aws3.non_cached_volume',
-			'AWSStorageGatewayVirtualTapeLibrary2' : ss + 'aws3.virtual_tape_library',
+			'AWSGlacierArchiveBlock3' : ss + 'aws3.archive;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSGlacierVaultBlock3' : ss + 'aws3.vault;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonEFS' : ss + 'aws3.efs;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSGlacierBlock2' : ss + 'aws3.glacier;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSImportExportSnowball' : ss + 'aws3.snowball;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStorageGatewayCachedVolumn2' : ss + 'aws3.cached_volume;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStorageGatewayNon-CachedVolumn2' : ss + 'aws3.non_cached_volume;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStorageGatewayVirtualTapeLibrary2' : ss + 'aws3.virtual_tape_library;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Content Delivery
-			'AWSCloudFrontBlock2' : ss + 'aws3.cloudfront',
-			'AWSDownloadDistBlock2' : ss + 'aws3.download_distribution',
-			'AWSStreamingBlock2' : ss + 'aws3.streaming_distribution',
-			'AWSEdgeLocationBlock2' : ss + 'aws3.edge_location',
+			'AWSCloudFrontBlock2' : ss + 'aws3.cloudfront;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDownloadDistBlock2' : ss + 'aws3.download_distribution;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStreamingBlock2' : ss + 'aws3.streaming_distribution;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEdgeLocationBlock2' : ss + 'aws3.edge_location;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Database
-			'AWSItemBlock2' : ss + 'aws3.item',
-			'AWSItemsBlock2' : ss + 'aws3.items',
-			'AWSAttributeBlock2' : ss + 'aws3.attribute',
-			'AWSAttributesBlock2' : ss + 'aws3.attributes',
-			'AWSRDBSBlock2' : ss + 'aws3.rds',
-			'AWSRDSInstanceBlock2' : ss + 'aws3.rds_db_instance',
-			'AWSRDSStandbyBlock2' : ss + 'aws3.rds_db_instance_standby_multi_az',
-			'AWSRDSInstanceReadBlock2' : ss + 'aws3.rds_db_instance_read_replica',
-			'AWSOracleDBBlock2' : ss + 'aws3.oracle_db_instance',
-			'AWSMySQLDBBlock2' : ss + 'aws3.mysql_db_instance',
-			'AWSDynamoDBBlock2' : ss + 'aws3.dynamo_db',
-			'AWSSimpleDatabaseBlock3' : ss + 'aws2.database.simpledb',
-			'AWSSimpleDatabaseDomainBlock3' : ss + 'aws2.database.simpledb_domain',
-			'AWSTableBlock2' : ss + 'aws3.table',
-			'AWSAmazonRedShiftBlock3' : ss + 'aws3.redshift',
-			'AWSElastiCacheNodeBlock2' : ss + 'aws3.cache_node',
-			'AWSElastiCacheBlock2' : ss + 'aws3.elasticache',
-			'AWSDynamoDBGlobalSecondaryIndexes2' : ss + 'aws3.global_secondary_index',
-			'AWSAmazonElastiCacheMemcache2' : ss + 'aws3.memcached',
-			'AWSAmazonElastiCacheRedis2' : ss + 'aws3.redis',
-			'AWSAmazonRDSMSSQLInstance2' : ss + 'aws3.ms_sql_instance_2',
-			'AWSMSSQLDBBlock3' : ss + 'aws3.ms_sql_instance',
-			'AWSAmazonRDSMySQLDBInstance2' : ss + 'aws3.mysql_db_instance_2',
-			'AWSAmazonRDSOracleDBInstance2' : ss + 'aws3.oracle_db_instance_2',
-			'AWSRDSReplicasetswithPIOP2' : ss + 'aws3.piop',
-			'AWSAmazonRDSPostgreSQL2' : ss + 'aws3.postgre_sql_instance',
-			'AWSRDSMasterSQL2' : ss + 'aws3.sql_master',
-			'AWSRDSSlaveSQL2' : ss + 'aws3.sql_slave',
-			'AWSAmazonRedshift(densecomputenode)' : ss + 'aws3.dense_compute_node',
-			'AWSAmazonRedshift(densestoragenode)' : ss + 'aws3.dense_storage_node',
-			'AWSAWSDatabaseMigrationService' : ss + 'aws3.database_migration_service',
+			'AWSItemBlock2' : ss + 'aws3.item;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSItemsBlock2' : ss + 'aws3.items;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAttributeBlock2' : ss + 'aws3.attribute;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAttributesBlock2' : ss + 'aws3.attributes;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDBSBlock2' : cs,
+			'AWSRDSInstanceBlock2' : ss + 'aws3.rds_db_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDSStandbyBlock2' : ss + 'aws3.rds_db_instance_standby_multi_az;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDSInstanceReadBlock2' : ss + 'aws3.rds_db_instance_read_replica;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOracleDBBlock2' : ss + 'aws3.oracle_db_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMySQLDBBlock2' : ss + 'aws3.mysql_db_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDynamoDBBlock2' : ss + 'aws3.dynamo_db;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSSimpleDatabaseBlock3' : ss + 'aws2.database.simpledb;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSSimpleDatabaseDomainBlock3' : ss + 'aws2.database.simpledb_domain;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSTableBlock2' : ss + 'aws3.table;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedShiftBlock3' : ss + 'aws3.redshift;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElastiCacheNodeBlock2' : ss + 'aws3.cache_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElastiCacheBlock2' : ss + 'aws3.elasticache;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDynamoDBGlobalSecondaryIndexes2' : ss + 'aws3.global_secondary_index;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonElastiCacheMemcache2' : ss + 'aws3.memcached;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonElastiCacheRedis2' : ss + 'aws3.redis;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRDSMSSQLInstance2' : ss + 'aws3.ms_sql_instance_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMSSQLDBBlock3' : ss + 'aws3.ms_sql_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRDSMySQLDBInstance2' : ss + 'aws3.mysql_db_instance_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRDSOracleDBInstance2' : ss + 'aws3.oracle_db_instance_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDSReplicasetswithPIOP2' : ss + 'aws3.piop;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRDSPostgreSQL2' : ss + 'aws3.postgre_sql_instance;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDSMasterSQL2' : ss + 'aws3.sql_master;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRDSSlaveSQL2' : ss + 'aws3.sql_slave;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedshift(densecomputenode)' : ss + 'aws3.dense_compute_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedshift(densestoragenode)' : ss + 'aws3.dense_storage_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSDatabaseMigrationService' : ss + 'aws3.database_migration_service;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Security Identity
-			'AWSACM' : ss + 'aws3.certificate_manager',
-			'AWSAmazonInspector' : ss + 'aws3.inspector',
-			'AWSAWSCloudHSM' : ss + 'aws3.cloudhsm',
-			'AWSDirectoryService2' : ss + 'aws3.directory_service',
-			'AWSAWSKMS' : ss + 'aws3.kms',
-			'AWSAWSWAF' : ss + 'aws3.waf',
-			'AWSACM(certificate-manager)' : ss + 'aws3.certificate_manager_2',
+			'AWSACM' : ss + 'aws3.certificate_manager;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonInspector' : ss + 'aws3.inspector;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSCloudHSM' : ss + 'aws3.cloudhsm;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDirectoryService2' : ss + 'aws3.directory_service;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSKMS' : ss + 'aws3.kms;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSWAF' : ss + 'aws3.waf;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSACM(certificate-manager)' : ss + 'aws3.certificate_manager_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //App Services
-			'AWSSESBlock2' : ss + 'aws3.ses',
-			'AWSEmailBlock2' : ss + 'aws3.email',
-			'AWSSNSBlock2' : ss + 'aws3.sns',
-			'AWSSQSBlock3' : ss + 'aws3.sqs',
-			'AWSQueueBlock2' : ss + 'aws3.queue',
-			'AWSMessageBlock2' : ss + 'aws3.message',
-			'AWSDeciderBlock2' : ss + 'aws3.decider',
-			'AWSSWFBlock2' : ss + 'aws3.swf',
-			'AWSWorkerBlock2' : ss + 'aws3.worker',
-			'AWSCloudSearchBlock2' : ss + 'aws3.cloudsearch',
-			'AWSCloudSearchMetadataBlock3' : ss + 'aws3.search_documents',
-			'AWSElasticTranscoder3' : ss + 'aws3.elastic_transcoder',
-			'AWSAmazonAPIGateway' : ss + 'aws3.api_gateway',
-			'AWSAppStream2' : ss + 'aws3.appstream',
+			'AWSSESBlock2' : ss + 'aws3.ses;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEmailBlock2' : ss + 'aws3.email;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSSNSBlock2' : ss + 'aws3.sns;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSSQSBlock3' : ss + 'aws3.sqs;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSQueueBlock2' : ss + 'aws3.queue;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMessageBlock2' : ss + 'aws3.message;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDeciderBlock2' : ss + 'aws3.decider;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSSWFBlock2' : ss + 'aws3.swf;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSWorkerBlock2' : ss + 'aws3.worker;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCloudSearchBlock2' : ss + 'aws3.cloudsearch;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCloudSearchMetadataBlock3' : ss + 'aws3.search_documents;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElasticTranscoder3' : ss + 'aws3.elastic_transcoder;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonAPIGateway' : ss + 'aws3.api_gateway;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAppStream2' : ss + 'aws3.appstream;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Deployment
-			'AWSCloudFormationBlock2' : ss + 'aws3.cloudformation',
-			'AWSDataPipelineBlock3' : ss + 'aws3.data_pipeline',
-			'AWSDataPipelineBlock2' : ss + 'aws3.data_pipeline',
-			'AWSTemplageBlock2' : ss + 'aws3.template',
-			'AWSStackBlock2' : ss + 'aws3.stack_aws_cloudformation',
-			'AWSBeanStockBlock2' : ss + 'aws3.elastic_beanstalk',
-			'AWSApplicationBlock2' : ss + 'aws3.application',
-			'AWSBeanstalkDeploymentBlock3' : ss + 'aws3.deployment',
-			'AWSIAMBlock3' : ss + 'aws3.iam',
-			'AWSIAMSTSBlock3' : ss + 'aws3.sts',
-			'AWSIAMAddonBlock2' : ss + 'aws3.add_on',
-			'AWSCloudWatchBlock3' : ss + 'aws3.cloudwatch',
-			'AWSCloudWatchAlarmBlock2' : ss + 'aws3.alarm',
-			'AWSIAMSecurityTokenService2' : ss + 'aws3.sts_2',
-			'AWSIAMDataEncryptionKey2' : ss + 'aws3.data_encryption_key',
-			'AWSIAMEncryptedData2' : ss + 'aws3.encrypted_data',
-			'AWSAWSIAM(long-termsecuritycredential)' : ss + 'aws3.long_term_security_credential',
-			'AWSIAMMFAToken2' : ss + 'aws3.mfa_token',
-			'AWSIAMPermissions2' : ss + 'aws3.permissions_2',
-			'AWSIAMRoles2' : ss + 'aws3.role',
-			'AWSAWSIAM(temporarysecuritycredential)' : ss + 'aws3.long_term_security_credential',
-			'AWSCloudTrail2' : ss + 'aws3.cloudtrail',
-			'AWSConfig2' : ss + 'aws3.config',
-			'AWSOpsWorksBlock3' : ss + 'aws3.opsworks',
-			'AWSAWSServiceCatalog' : ss + 'aws3.service_catalog',
-			'AWSTrustedAdvisor2' : ss + 'aws3.trusted_advisor',
-			'AWSOpsWorksApps2' : ss + 'aws3.apps',
-			'AWSOpsWorksDeployments2' : ss + 'aws3.deployments',
-			'AWSOpsWorksInstances2' : ss + 'aws3.instances_2',
-			'AWSOpsWorksLayers2' : ss + 'aws3.layers',
-			'AWSOpsWorksMonitoring2' : ss + 'aws3.monitoring',
-			'AWSOpsWorksPermissions2' : ss + 'aws3.permissions',
-			'AWSOpsWorksResources2' : ss + 'aws3.resources',
-			'AWSOpsWorksStack2' : ss + 'aws3.stack_aws_opsworks',
+			'AWSCloudFormationBlock2' : ss + 'aws3.cloudformation;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDataPipelineBlock3' : ss + 'aws3.data_pipeline;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDataPipelineBlock2' : ss + 'aws3.data_pipeline;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSTemplageBlock2' : ss + 'aws3.template;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSStackBlock2' : ss + 'aws3.stack_aws_cloudformation;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSBeanStockBlock2' : ss + 'aws3.elastic_beanstalk;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSApplicationBlock2' : ss + 'aws3.application;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSBeanstalkDeploymentBlock3' : ss + 'aws3.deployment;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMBlock3' : ss + 'aws3.iam;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMSTSBlock3' : ss + 'aws3.sts;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMAddonBlock2' : ss + 'aws3.add_on;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCloudWatchBlock3' : ss + 'aws3.cloudwatch;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCloudWatchAlarmBlock2' : ss + 'aws3.alarm;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMSecurityTokenService2' : ss + 'aws3.sts_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMDataEncryptionKey2' : ss + 'aws3.data_encryption_key;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMEncryptedData2' : ss + 'aws3.encrypted_data;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIAM(long-termsecuritycredential)' : ss + 'aws3.long_term_security_credential;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMMFAToken2' : ss + 'aws3.mfa_token;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMPermissions2' : ss + 'aws3.permissions_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSIAMRoles2' : ss + 'aws3.role;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIAM(temporarysecuritycredential)' : ss + 'aws3.long_term_security_credential;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCloudTrail2' : ss + 'aws3.cloudtrail;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSConfig2' : ss + 'aws3.config;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksBlock3' : ss + 'aws3.opsworks;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSServiceCatalog' : ss + 'aws3.service_catalog;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSTrustedAdvisor2' : ss + 'aws3.trusted_advisor;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksApps2' : ss + 'aws3.apps;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksDeployments2' : ss + 'aws3.deployments;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksInstances2' : ss + 'aws3.instances_2;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksLayers2' : ss + 'aws3.layers;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksMonitoring2' : ss + 'aws3.monitoring;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksPermissions2' : ss + 'aws3.permissions;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksResources2' : ss + 'aws3.resources;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSOpsWorksStack2' : ss + 'aws3.stack_aws_opsworks;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //On-Demand
-			'AWSMechanicalTurkBlock3' : ss + 'aws3.mechanical_turk',
-			'AWSHumanITBlock2' : ss + 'aws3.human_intelligence_tasks_hit',
-			'AWSAssignmentTaskBlock2' : ss + 'aws3.requester',
-			'AWSWorkersBlock2' : ss + 'aws3.users',
-			'AWSRequesterBlock2' : ss + 'aws3.assignment_task',
+			'AWSMechanicalTurkBlock3' : ss + 'aws3.mechanical_turk;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSHumanITBlock2' : ss + 'aws3.human_intelligence_tasks_hit;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAssignmentTaskBlock2' : ss + 'aws3.requester;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSWorkersBlock2' : ss + 'aws3.users;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRequesterBlock2' : ss + 'aws3.assignment_task;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //SDKs
-			'AWSAndroidBlock3': ss + 'aws3.android;fillColor=#96BF3D',
-			'AWSiOSBlock3' : ss + 'aws3.android;fillColor=#CFCFCF',
-			'AWSJavaBlock3' : ss + 'aws3.android;fillColor=#EE472A',
-			'AWSJavaScript' : ss + 'aws3.android;fillColor=#205E00',
-			'AWSNetBlock3' : ss + 'aws3.android;fillColor=#115193',
-			'AWSNodeJSBlock3' : ss + 'aws3.android;fillColor=#8CC64F',
-			'AWSPHPBlock3' : ss + 'aws3.android;fillColor=#5A69A4',
-			'AWSPythonBlock3' : ss + 'aws3.android;fillColor=#FFD44F',
-			'AWSRubyBlock3' : ss + 'aws3.android;fillColor=#AE1F23',
-			'AWSXamarin' : ss + 'aws3.android;fillColor=#4090D7',
-			'AWSCLIBlock3' : ss + 'aws3.cli;fillColor=#444444',
-			'AWSEclipseToolkitBlock3' : ss + 'aws3.toolkit_for_eclipse;fillColor=#342074',
-			'AWSVisualStudioToolkitBlock3' : ss + 'aws3.toolkit_for_visual_studio;fillColor=#53B1CB',
-			'AWSWindowsPowershellToolkitBlock3' : ss + 'aws3.toolkit_for_windows_powershell;fillColor=#737373',
+			'AWSAndroidBlock3': ss + 'aws3.android;fillColor=#96BF3D;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSiOSBlock3' : ss + 'aws3.android;fillColor=#CFCFCF;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSJavaBlock3' : ss + 'aws3.android;fillColor=#EE472A;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSJavaScript' : ss + 'aws3.android;fillColor=#205E00;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSNetBlock3' : ss + 'aws3.android;fillColor=#115193;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSNodeJSBlock3' : ss + 'aws3.android;fillColor=#8CC64F;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSPHPBlock3' : ss + 'aws3.android;fillColor=#5A69A4;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSPythonBlock3' : ss + 'aws3.android;fillColor=#FFD44F;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSRubyBlock3' : ss + 'aws3.android;fillColor=#AE1F23;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSXamarin' : ss + 'aws3.android;fillColor=#4090D7;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCLIBlock3' : ss + 'aws3.cli;fillColor=#444444;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEclipseToolkitBlock3' : ss + 'aws3.toolkit_for_eclipse;fillColor=#342074;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVisualStudioToolkitBlock3' : ss + 'aws3.toolkit_for_visual_studio;fillColor=#53B1CB;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSWindowsPowershellToolkitBlock3' : ss + 'aws3.toolkit_for_windows_powershell;fillColor=#737373;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Analytics
-			'AWSAmazonElasticsearchService' : ss + 'aws3.elasticsearch_service',
-			'AWSElasticMapReduceBlock2' : ss + 'aws3.emr',
-			'AWSClusterBlock2' : ss + 'aws3.emr_cluster',
-			'AWSEMREngine2' : ss + 'aws3.emr_engine',
-			'AWSEMRMapRM3Engine2' : ss + 'aws3.emr_engine_mapr_m3',
-			'AWSEMRMapRM5Engine2' : ss + 'aws3.emr_engine_mapr_m5',
-			'AWSEMRMapRM7Engine2' : ss + 'aws3.emr_engine_mapr_m7',
-			'AWSKinesis2' : ss + 'aws3.kinesis',
-			'AWSAmazonKinesis(AmazonKinesisAnalytics)' : ss + 'aws3.kinesis',
-			'AWSKinesisEnabledApp2' : ss + 'aws3.kinesis_enabled_app',
-			'AWSAmazonKinesis(AmazonKinesisFirehose)' : ss + 'aws3.kinesis_firehose',
-			'AWSAmazonKinesis(AmazonKinesisStreams)' : ss + 'aws3.kinesis_streams',
-			'AWSAmazonMachineLearning' : ss + 'aws3.machine_learning',
-			'AWSAmazonQuickSight' : ss + 'aws3.quicksight',
+			'AWSAmazonElasticsearchService' : ss + 'aws3.elasticsearch_service;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSElasticMapReduceBlock2' : ss + 'aws3.emr;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSClusterBlock2' : ss + 'aws3.emr_cluster;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEMREngine2' : ss + 'aws3.emr_engine;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEMRMapRM3Engine2' : ss + 'aws3.emr_engine_mapr_m3;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEMRMapRM5Engine2' : ss + 'aws3.emr_engine_mapr_m5;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSEMRMapRM7Engine2' : ss + 'aws3.emr_engine_mapr_m7;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSKinesis2' : ss + 'aws3.kinesis;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonKinesis(AmazonKinesisAnalytics)' : ss + 'aws3.kinesis;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSKinesisEnabledApp2' : ss + 'aws3.kinesis_enabled_app;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonKinesis(AmazonKinesisFirehose)' : ss + 'aws3.kinesis_firehose;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonKinesis(AmazonKinesisStreams)' : ss + 'aws3.kinesis_streams;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonMachineLearning' : ss + 'aws3.machine_learning;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonQuickSight' : ss + 'aws3.quicksight;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Mobile Services
-			'AWSCognito2' : ss + 'aws3.cognito',
-			'AWSMobileAnalytics2' : ss + 'aws3.mobile_analytics',
-			'AWSAWSDeviceFarm' : ss + 'aws3.device_farm',
-			'AWSAWSMobileHub' : ss + 'aws3.mobile_hub;gradientColor=#AD688A;gradientDirection=east',
+			'AWSCognito2' : ss + 'aws3.cognito;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMobileAnalytics2' : ss + 'aws3.mobile_analytics;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSDeviceFarm' : ss + 'aws3.device_farm;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSMobileHub' : ss + 'aws3.mobile_hub;gradientColor=#AD688A;gradientDirection=east;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			'AWSTopicBlock2' : ss + 'aws3.topic_2;fontStyle=1;fontColor=#ffffff;verticalAlign=top;spacingTop=-5',
-			'AWSEmailNotificationBlock2' : ss + 'aws3.email_notification',
-			'AWSHTTPNotificationBlock2' : ss + 'aws3.http_notification',
+			'AWSEmailNotificationBlock2' : ss + 'aws3.email_notification;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSHTTPNotificationBlock2' : ss + 'aws3.http_notification;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Developer Tools
-			'AWSAWSCodeCommit' : ss + 'aws3.codecommit',
-			'AWSCodeDeploy2' : ss + 'aws3.codedeploy',
-			'AWSAWSCodePipeline' : ss + 'aws3.codepipeline',
+			'AWSAWSCodeCommit' : ss + 'aws3.codecommit;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSCodeDeploy2' : ss + 'aws3.codedeploy;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSCodePipeline' : ss + 'aws3.codepipeline;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Enterprise Application
-			'AWSWorkDocs2' : ss + 'aws3.workdocs',
-			'AWSAmazonWorkMail' : ss + 'aws3.workmail',
-			'AWSAmazonWorkSpaces2' : ss + 'aws3.workspaces',
+			'AWSWorkDocs2' : ss + 'aws3.workdocs;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonWorkMail' : ss + 'aws3.workmail;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonWorkSpaces2' : ss + 'aws3.workspaces;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //Internet of Things
-			'AWSAWSIoT' : ss + 'aws3.aws_iot',
-			'AWSAWSIoT(action)' : ss + 'aws3.action',
-			'AWSAWSIoT(actuator)' : ss + 'aws3.actuator',
-			'AWSAWSIoT(certificate)' : ss + 'aws3.certificate',
-			'AWSAWSIoT(desiredstate)' : ss + 'aws3.desired_state',
-			'AWSAWSIoT(hardwareboard)' : ss + 'aws3.hardware_board',
-			'AWSAWSIoT(HTTP2protocol)' : ss + 'aws3.http_2_protocol',
-			'AWSAWSIoT(HTTPprotocol)' : ss + 'aws3.http_protocol',
-			'AWSAWSIoT(MQTTprotocol)' : ss + 'aws3.mqtt_protocol',
-			'AWSAWSIoT(policy)' : ss + 'aws3.policy',
-			'AWSAWSIoT(reportedstate)' : ss + 'aws3.reported_state',
-			'AWSAWSIoT(rule)' : ss + 'aws3.rule',
-			'AWSAWSIoT(sensor)' : ss + 'aws3.sensor',
-			'AWSAWSIoT(servo)' : ss + 'aws3.servo',
-			'AWSAWSIoT(shadow)' : ss + 'aws3.shadow',
-			'AWSAWSIoT(simulator)' : ss + 'aws3.simulator',
-			'AWSAWSIoT(thingbank)' : ss + 'aws3.bank',
-			'AWSAWSIoT(thingbicycle)' : ss + 'aws3.bicycle',
-			'AWSAWSIoT(thingcamera)' : ss + 'aws3.camera',
-			'AWSAWSIoT(thingcar)' : ss + 'aws3.car',
-			'AWSAWSIoT(thingcart)' : ss + 'aws3.cart',
-			'AWSAWSIoT(thingcoffeepot)' : ss + 'aws3.coffee_pot',
-			'AWSAWSIoT(thingdoorlock)' : ss + 'aws3.door_lock',
-			'AWSAWSIoT(thingfactory)' : ss + 'aws3.factory',
-			'AWSAWSIoT(thinggeneric)' : ss + 'aws3.generic',
-			'AWSAWSIoT(thinghouse)' : ss + 'aws3.house',
-			'AWSAWSIoT(thinglightbulb)' : ss + 'aws3.lightbulb',
-			'AWSAWSIoT(thingmedicalemergency)' : ss + 'aws3.medical_emergency',
-			'AWSAWSIoT(thingpoliceemergency)' : ss + 'aws3.police_emergency',
-			'AWSAWSIoT(thingthermostat)' : ss + 'aws3.thermostat',
-			'AWSAWSIoT(thingtravel)' : ss + 'aws3.travel',
-			'AWSAWSIoT(thingutility)' : ss + 'aws3.utility',
-			'AWSAWSIoT(thingwindfarm)' : ss + 'aws3.windfarm',
-			'AWSAWSIoT(topic)' : ss + 'aws3.topic',
+			'AWSAWSIoT' : ss + 'aws3.aws_iot;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(action)' : ss + 'aws3.action;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(actuator)' : ss + 'aws3.actuator;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(certificate)' : ss + 'aws3.certificate;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(desiredstate)' : ss + 'aws3.desired_state;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(hardwareboard)' : ss + 'aws3.hardware_board;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(HTTP2protocol)' : ss + 'aws3.http_2_protocol;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(HTTPprotocol)' : ss + 'aws3.http_protocol;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(MQTTprotocol)' : ss + 'aws3.mqtt_protocol;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(policy)' : ss + 'aws3.policy;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(reportedstate)' : ss + 'aws3.reported_state;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(rule)' : ss + 'aws3.rule;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(sensor)' : ss + 'aws3.sensor;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(servo)' : ss + 'aws3.servo;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(shadow)' : ss + 'aws3.shadow;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(simulator)' : ss + 'aws3.simulator;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingbank)' : ss + 'aws3.bank;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingbicycle)' : ss + 'aws3.bicycle;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingcamera)' : ss + 'aws3.camera;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingcar)' : ss + 'aws3.car;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingcart)' : ss + 'aws3.cart;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingcoffeepot)' : ss + 'aws3.coffee_pot;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingdoorlock)' : ss + 'aws3.door_lock;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingfactory)' : ss + 'aws3.factory;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thinggeneric)' : ss + 'aws3.generic;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thinghouse)' : ss + 'aws3.house;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thinglightbulb)' : ss + 'aws3.lightbulb;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingmedicalemergency)' : ss + 'aws3.medical_emergency;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingpoliceemergency)' : ss + 'aws3.police_emergency;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingthermostat)' : ss + 'aws3.thermostat;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingtravel)' : ss + 'aws3.travel;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingutility)' : ss + 'aws3.utility;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(thingwindfarm)' : ss + 'aws3.windfarm;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAWSIoT(topic)' : ss + 'aws3.topic;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 			
 //AWS General			
-			'AWSCloudBlock2' : ss + 'aws3.cloud',
-			'AWSVPCloudBlock3' : ss + 'aws3.virtual_private_cloud',
-			'AWSUserBlock2' : ss + 'aws3.user',
-			'AWSUsersBlock2' : ss + 'aws3.users',
-			'AWSClientBlock2' : ss + 'aws3.management_console',
-			'AWSMobileClientBlock2' : ss + 'aws3.mobile_client',
-			'AWSGenericDatabaseBlock3' : ss + 'aws3.generic_database',
-			'AWSDiskBlock3' : ss + 'aws3.disk',
-			'AWSTapeStorageBlock3' : ss + 'aws3.tape_storage',
-			'AWSMediaBlock2' : ss + 'aws3.multimedia',
-			'AWSDataCenterBlock2' : ss + 'aws3.corporate_data_center',
-			'AWSServerBlock2' : ss + 'aws3.traditional_server',
-			'AWSInternetBlock2' : ss + 'aws2.non-service_specific.internet',
-			'AWSForumsBlock3' : ss + 'aws3.forums',
-			'AWSManagementBlock2' : ss + 'aws3.management_console',
-			'AWSAmazonElasticCacheNode2' : ss + 'aws3.cache_node',
-			'AWSAmazonRedshiftDW1Cluster2' : ss + 'aws3.dense_compute_node',
-			'AWSAmazonRedshiftDW2Cluster2' : ss + 'aws3.dense_storage_node',
-			'AWSAmazonRedshiftSSDFamilyCluster2' : ss + 'aws3.dense_storage_node',
-			'AWSAmazonRoute53RouteTable2' : ss + 'aws3.route_table',
+			'AWSCloudBlock2' : ss + 'aws3.cloud;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSVPCloudBlock3' : ss + 'aws3.virtual_private_cloud;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSUserBlock2' : ss + 'aws3.user;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSUsersBlock2' : ss + 'aws3.users;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSClientBlock2' : ss + 'aws3.management_console;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMobileClientBlock2' : ss + 'aws3.mobile_client;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSGenericDatabaseBlock3' : ss + 'aws3.generic_database;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDiskBlock3' : ss + 'aws3.disk;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSTapeStorageBlock3' : ss + 'aws3.tape_storage;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSMediaBlock2' : ss + 'aws3.multimedia;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSDataCenterBlock2' : ss + 'aws3.corporate_data_center;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSServerBlock2' : ss + 'aws3.traditional_server;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSInternetBlock2' : ss + 'aws2.non-service_specific.internet;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSForumsBlock3' : ss + 'aws3.forums;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSManagementBlock2' : ss + 'aws3.management_console;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonElasticCacheNode2' : ss + 'aws3.cache_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedshiftDW1Cluster2' : ss + 'aws3.dense_compute_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedshiftDW2Cluster2' : ss + 'aws3.dense_storage_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRedshiftSSDFamilyCluster2' : ss + 'aws3.dense_storage_node;verticalLabelPosition=bottom;align=center;verticalAlign=top',
+			'AWSAmazonRoute53RouteTable2' : ss + 'aws3.route_table;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //			'AWSExampleIAMBlock2' NA
-			'AWSSubnetBlock2' : ss + 'aws3.permissions',
+			'AWSSubnetBlock2' : ss + 'aws3.permissions;verticalLabelPosition=bottom;align=center;verticalAlign=top',
 //AWS Containers
 			'AWSRoundedRectangleContainerBlock2' : cs,
 //Azure Cloud
@@ -1258,8 +1264,8 @@
 //			'NET_MLPS' NA
 //Basic Network Shapes
 			'NET_WirelessAccessPoint' : s + 'networks.radio_tower;fillColor=#29AAE1',
-			'NET_RingNetwork' : cs, //TODO
-//			'NET_Ethernet' : cs, //TODO
+			'NET_RingNetwork' : cs,
+			'NET_Ethernet' : cs,
 			'NET_Server' : s + 'networks.server;fillColor=#29AAE1',
 //			'NET_ExternalMediaDrive' NA
 			'NET_Mainframe' : s + 'networks.mainframe;fillColor=#29AAE1',
@@ -1349,34 +1355,34 @@
 //			'Image_audio_headset' NA
 //Electrical
 			'EE_Amplifier' : s + 'electrical.abstract.amplifier',
-			'EE_OpAmp' : s + 'electrical.abstract.operational_amp_1', //TODO
-			'EE_ControlledAmp' : s + 'electrical.abstract.controlled_amplifier', //TODO
-			'EE_Multiplexer' : s + 'electrical.abstract.mux', //TODO
-			'EE_Demultiplexer' : s + 'electrical.abstract.demux;', //TODO
-			'EE_Capacitor1' : s + 'electrical.capacitors.capacitor_1', //TODO
-			'EE_Capacitor2' : s + 'electrical.capacitors.capacitor_3', //TODO
-			'EE_Diode' : s + 'electrical.diodes.diode', //TODO
-			'EE_Resistor' : s + 'electrical.resistors.resistor_2', //TODO
+			'EE_OpAmp' : cs,
+			'EE_ControlledAmp' : s + 'electrical.abstract.controlled_amplifier',
+			'EE_Multiplexer' : s + 'electrical.abstract.mux',
+			'EE_Demultiplexer' : s + 'electrical.abstract.demux;',
+			'EE_Capacitor1' : s + 'electrical.capacitors.capacitor_1',
+			'EE_Capacitor2' : s + 'electrical.capacitors.capacitor_3',
+			'EE_Diode' : s + 'electrical.diodes.diode',
+			'EE_Resistor' : s + 'electrical.resistors.resistor_2',
 			'EE_VarResistor' : s + 'electrical.resistors.variable_resistor_2',
-			'EE_Potentiometer' : s + 'electrical.resistors.potentiometer_2', //TODO
+			'EE_Potentiometer' : s + 'electrical.resistors.potentiometer_2',
 			'EE_ProtGround' : s + 'electrical.signal_sources.protective_earth',
 			'EE_SignalGround' : s + 'electrical.signal_sources.signal_ground',
 			'EE_Transformer' : s + 'electrical.inductors.transformer_1',
-			'EE_Inductor' : s + 'electrical.inductors.inductor_3', //TODO
-			'EE_Variable Inductor' : s + 'electrical.inductors.variable_inductor', //TODO
+			'EE_Inductor' : s + 'electrical.inductors.inductor_3',
+			'EE_Variable Inductor' : s + 'electrical.inductors.variable_inductor',
 			'EE_TwoWaySwitch' : s + 'electrical.electro-mechanical.2-way_switch',
 			'EE_OnOffSwitch' : s + 'electrical.electro-mechanical.simple_switch',
 			'EE_Loudspeaker' : s + 'electrical.electro-mechanical.loudspeaker',
-			'EE_Motor' : s + 'electrical.electro-mechanical.motor_1', //TODO
+			'EE_Motor' : s + 'electrical.electro-mechanical.motor_1',
 			'EE_LED1' : s + 'electrical.opto_electronics.led_2',
 			'EE_Lightbulb' : s + 'electrical.miscellaneous.light_bulb',
-			'EE_IntegratedCircuit' : cs, //TODO
+//			'EE_IntegratedCircuit' : NA
 //Power Sources
-			'EE_AcSource' : s + 'electrical.signal_sources.ac_source;strokeWidth=1', //TODO
-			'EE_VoltageSource' : s + 'electrical.signal_sources.dc_source_3', //TODO
-			'EE_CurrentSource' : s + 'electrical.signal_sources.dc_source_2;direction=north', //TODO
-			'EE_ControlledCurrentSource' : s + 'electrical.signal_sources.dependent_source_2;direction=west', //TODO
-			'EE_ControlledVoltageSource' : s + 'electrical.signal_sources.dependent_source_3', //TODO
+			'EE_AcSource' : s + 'electrical.signal_sources.ac_source;strokeWidth=1',
+			'EE_VoltageSource' : s + 'electrical.signal_sources.dc_source_3',
+			'EE_CurrentSource' : s + 'electrical.signal_sources.dc_source_2;direction=north',
+			'EE_ControlledCurrentSource' : s + 'electrical.signal_sources.dependent_source_2;direction=west',
+			'EE_ControlledVoltageSource' : s + 'electrical.signal_sources.dependent_source_3',
 			'EE_DcSource1' : s + 'electrical.miscellaneous.monocell_battery;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
 			'EE_DcSource2' : s + 'electrical.miscellaneous.multicell_battery;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
 			'EE_Vss' : s + 'electrical.signal_sources.vss2;verticalLabelPosition=top;verticalAlign=bottom;fontSize=24',
@@ -1421,108 +1427,107 @@
 			'EE_Sawtooth' : s + 'electrical.waveforms.sawtooth',
 			'EE_SquareWave' : s + 'electrical.waveforms.square_wave',
 //Messaging Systems
-			'EIChannelBlock' : s + 'eip.messageChannel',
-//			'EIMessageChannelBlock' NA
-			'EIMessageBlock' : cs, //TODO
-			'EIMessageRouterBlock' : s + 'eip.content_based_router',
-			'EIMessageTranslatorBlock' : s + 'eip.message_translator',
-			'EIMessageEndpointBlock' : cs, //TODO
+			'EIChannelBlock' : s + 'eip.messageChannel;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageChannelBlock' : cs,
+			'EIMessageBlock' : cs,
+			'EIMessageRouterBlock' : s + 'eip.content_based_router;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageTranslatorBlock' : s + 'eip.message_translator;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageEndpointBlock' : cs,
 //Messaging Channels
-//			'EIPublishSubscribeChannelBlock' NA
-//			'EIDatatypeChannelBlock' NA
-//			'EIInvalidMessageChannelBlock' NA
-//			'EIDeadLetterChannelBlock' NA
-//			'EIGuaranteedDeliveryBlock' NA
-//			'EIChannelAdapterBlock' NA
-			'EIMessagingBridgeBlock' : s + 'eip.messaging_bridge',
-//			'EIMessageBusBlock' NA
+			'EIPublishSubscribeChannelBlock' : cs,
+			'EIDatatypeChannelBlock' : cs,
+			'EIInvalidMessageChannelBlock' : cs,
+			'EIDeadLetterChannelBlock' : cs,
+			'EIGuaranteedDeliveryBlock' : cs,
+			'EIChannelAdapterBlock' : cs,
+			'EIMessagingBridgeBlock' : s + 'eip.messaging_bridge;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageBusBlock' : cs,
 //Message Construction
-			'EICommandMessageBlock'  : cs, //TODO
-			'EIDocumentMessageBlock'  : cs, //TODO
-			'EIEventMessageBlock'  : cs, //TODO
-//			'EIEventMessageBlock' NA
-//			'EIRequestReplyBlock' NA
-//			'EIReturnAddressBlock' NA
-//			'EICorrelationIDBlock' NA
-//			'EIMessageSequenceBlock' NA
-//			'EIMessageExpirationBlock' NA
+			'EICommandMessageBlock' : cs,
+			'EIDocumentMessageBlock' : cs,
+			'EIEventMessageBlock' : cs,
+			'EIRequestReplyBlock' : cs, 
+			'EIReturnAddressBlock' : cs,
+			'EICorrelationIDBlock' : cs,
+			'EIMessageSequenceBlock' : cs,
+			'EIMessageExpirationBlock' : cs,
 //Message Routing
-			'EIContentBasedRouterBlock' : s + 'eip.content_based_router',
-			'EIMessageFilterBlock' : s + 'eip.message_filter',
-			'EIDynamicRouterBlock' : s + 'eip.dynamic_router',
-			'EIRecipientListBlock' : s + 'eip.recipient_list',
-			'EISplitterBlock' : s + 'eip.splitter',
-			'EIAggregatorBlock' : s + 'eip.aggregator',
-			'EIResequencerBlock' : s + 'eip.resequencer',
-			'EIComposedMessageBlock' : s + 'eip.composed_message_processor',
-			'EIRoutingSlipBlock' : s + 'eip.routing_slip',
-			'EIProcessManagerBlock' : s + 'eip.process_manager',
-			'EIMessageBrokerBlock' : cs, //TODO
+			'EIContentBasedRouterBlock' : s + 'eip.content_based_router;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageFilterBlock' : s + 'eip.message_filter;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIDynamicRouterBlock' : s + 'eip.dynamic_router;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIRecipientListBlock' : s + 'eip.recipient_list;verticalLabelPosition=bottom;verticalAlign=top',
+			'EISplitterBlock' : s + 'eip.splitter;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIAggregatorBlock' : s + 'eip.aggregator;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIResequencerBlock' : s + 'eip.resequencer;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIComposedMessageBlock' : s + 'eip.composed_message_processor;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIRoutingSlipBlock' : s + 'eip.routing_slip;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIProcessManagerBlock' : s + 'eip.process_manager;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageBrokerBlock' : cs,
 //Message Transformation
-			'EIEnvelopeWrapperBlock' : s + 'eip.envelope_wrapper',
-			'EIContentEnricherBlock' : s + 'eip.content_enricher',
-			'EIContentFilterBlock' : s + 'eip.content_filter',
-			'EIClaimCheckBlock' : s + 'eip.claim_check',
-			'EINormalizerBlock' : s + 'eip.normalizer',
+			'EIEnvelopeWrapperBlock' : s + 'eip.envelope_wrapper;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIContentEnricherBlock' : s + 'eip.content_enricher;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIContentFilterBlock' : s + 'eip.content_filter;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIClaimCheckBlock' : s + 'eip.claim_check;verticalLabelPosition=bottom;verticalAlign=top',
+			'EINormalizerBlock' : s + 'eip.normalizer;verticalLabelPosition=bottom;verticalAlign=top',
 //Messaging Endpoints
-			'EIMessagingGatewayBlock' : s + 'eip.messaging_gateway',
-			'EITransactionalClientBlock' : s + 'eip.transactional_client',
-			'EIPollingConsumerBlock' : s + 'eip.polling_consumer',
-			'EIEventDrivenConsumerBlock' : s + 'eip.event_driven_consumer',
-			'EICompetingConsumersBlock' : s + 'eip.competing_consumers',
-			'EIMessageDispatcherBlock' : s + 'eip.message_dispatcher',
-			'EISelectiveConsumerBlock' : s + 'eip.selective_consumer',
-//			'EIDurableSubscriberBlock' NA
-			'EIServiceActivatorBlock' : s + 'eip.service_activator',
+			'EIMessagingGatewayBlock' : s + 'eip.messaging_gateway;verticalLabelPosition=bottom;verticalAlign=top',
+			'EITransactionalClientBlock' : s + 'eip.transactional_client;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIPollingConsumerBlock' : s + 'eip.polling_consumer;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIEventDrivenConsumerBlock' : s + 'eip.event_driven_consumer;verticalLabelPosition=bottom;verticalAlign=top',
+			'EICompetingConsumersBlock' : s + 'eip.competing_consumers;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageDispatcherBlock' : s + 'eip.message_dispatcher;verticalLabelPosition=bottom;verticalAlign=top',
+			'EISelectiveConsumerBlock' : s + 'eip.selective_consumer;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIDurableSubscriberBlock' : cs,
+			'EIServiceActivatorBlock' : s + 'eip.service_activator;verticalLabelPosition=bottom;verticalAlign=top',
 //System Management
-//			'EIControlBusBlock' NA
-			'EIDetourBlock' : s + 'eip.detour',
-			'EIWireTapBlock' : s + 'eip.wire_tap',
-			'EIMessageHistoryBlock' : cs, //TODO
-			'EIMessageStoreBlock' : s + 'eip.message_store',
-			'EISmartProxyBlock' : s + 'eip.smart_proxy',
-			'EITestMessageBlock' : s + 'eip.test_message',
-			'EIChannelPurgerBlock' : s + 'eip.channel_purger',
+			'EIControlBusBlock' : cs,
+			'EIDetourBlock' : s + 'eip.detour;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIWireTapBlock' : s + 'eip.wire_tap;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIMessageHistoryBlock' : cs,
+			'EIMessageStoreBlock' : s + 'eip.message_store;verticalLabelPosition=bottom;verticalAlign=top',
+			'EISmartProxyBlock' : s + 'eip.smart_proxy;verticalLabelPosition=bottom;verticalAlign=top',
+			'EITestMessageBlock' : s + 'eip.test_message;verticalLabelPosition=bottom;verticalAlign=top',
+			'EIChannelPurgerBlock' : s + 'eip.channel_purger;verticalLabelPosition=bottom;verticalAlign=top',
 //Google Cloud Platform
-			'GCPIconComputeEngineBlock' : ss + 'gcp.compute.compute_engine',
-			'GCPIconAppEngineBlock' : ss + 'gcp.compute.app_engine',
-			'GCPIconContainerEngineBlock' : ss + 'gcp.compute.container_engine',
-			'GCPIconContainerRegistryBlock' : ss + 'gcp.compute.container_registry',
-			'GCPIconCloudFunctionsBlock' : ss + 'gcp.compute.cloud_functions',
-			'GCPIconCloudStorageBlock' : ss + 'gcp.storage_databases.cloud_storage',
-			'GCPIconCloudSQLBlock' : ss + 'gcp.storage_databases.cloud_sql',
-			'GCPIconCloudBigtableBlock' : ss + 'gcp.storage_databases.cloud_bigtable',
-			'GCPIconCloudDatastoreBlock' : ss + 'gcp.storage_databases.cloud_datastore',
-			'GCPIconPersistentDiskBlock' : ss + 'gcp.storage_databases.persistent_disk',
-			'GCPIconCloudVirtualNetworkBlock' : ss + 'gcp.networking.cloud_virtual_network',
-			'GCPIconCloudLoadBalancingBlock' : ss + 'gcp.networking.cloud_load_balancing',
-			'GCPIconCloudCDNBlock' : ss + 'gcp.networking.cloud_cdn',
-			'GCPIconCloudInterconnectBlock' : ss + 'gcp.networking.cloud_interconnect',
-			'GCPIconCloudDNSBlock' : ss + 'gcp.networking.cloud_dns',
-			'GCPIconBigQueryBlock' : ss + 'gcp.big_data.bigquery',
-			'GCPIconCloudDataflowBlock' : ss + 'gcp.big_data.cloud_dataflow',
-			'GCPIconCloudDataprocBlock' : ss + 'gcp.big_data.cloud_dataproc',
-			'GCPIconCloudDatalabBlock' : ss + 'gcp.big_data.cloud_datalab',
-			'GCPIconCloudPubSubBlock' : ss + 'gcp.big_data.cloud_pubsub',
-			'GCPIconGenomicsBlock' : ss + 'gcp.big_data.genomics',
-			'GCPIconCloudMachineLearningServicesBlock' : ss + 'gcp.machine_learning.cloud_machine_learning',
-			'GCPIconVisionAPIBlock' : ss + 'gcp.machine_learning.vision_api',
-			'GCPIconSpeechAPIBlock' : ss + 'gcp.machine_learning.speech_api',
-			'GCPIconNaturalLanguageAPIBlock' : ss + 'gcp.machine_learning.natural_language_api',
-			'GCPIconTranslateAPIBlock' : ss + 'gcp.machine_learning.translation_api',
-			'GCPIconStackdriverOverviewBlock' : ss + 'gcp.management_tools.stackdriver',
-			'GCPIconMonitoringBlock' : ss + 'gcp.management_tools.monitoring',
+			'GCPIconComputeEngineBlock' : ss + 'gcp.compute.compute_engine;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconAppEngineBlock' : ss + 'gcp.compute.app_engine;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconContainerEngineBlock' : ss + 'gcp.compute.container_engine;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconContainerRegistryBlock' : ss + 'gcp.compute.container_registry;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudFunctionsBlock' : ss + 'gcp.compute.cloud_functions;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudStorageBlock' : ss + 'gcp.storage_databases.cloud_storage;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudSQLBlock' : ss + 'gcp.storage_databases.cloud_sql;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudBigtableBlock' : ss + 'gcp.storage_databases.cloud_bigtable;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudDatastoreBlock' : ss + 'gcp.storage_databases.cloud_datastore;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconPersistentDiskBlock' : ss + 'gcp.storage_databases.persistent_disk;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudVirtualNetworkBlock' : ss + 'gcp.networking.cloud_virtual_network;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudLoadBalancingBlock' : ss + 'gcp.networking.cloud_load_balancing;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudCDNBlock' : ss + 'gcp.networking.cloud_cdn;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudInterconnectBlock' : ss + 'gcp.networking.cloud_interconnect;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudDNSBlock' : ss + 'gcp.networking.cloud_dns;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconBigQueryBlock' : ss + 'gcp.big_data.bigquery;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudDataflowBlock' : ss + 'gcp.big_data.cloud_dataflow;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudDataprocBlock' : ss + 'gcp.big_data.cloud_dataproc;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudDatalabBlock' : ss + 'gcp.big_data.cloud_datalab;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudPubSubBlock' : ss + 'gcp.big_data.cloud_pubsub;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconGenomicsBlock' : ss + 'gcp.big_data.genomics;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudMachineLearningServicesBlock' : ss + 'gcp.machine_learning.cloud_machine_learning;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconVisionAPIBlock' : ss + 'gcp.machine_learning.vision_api;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconSpeechAPIBlock' : ss + 'gcp.machine_learning.speech_api;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconNaturalLanguageAPIBlock' : ss + 'gcp.machine_learning.natural_language_api;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconTranslateAPIBlock' : ss + 'gcp.machine_learning.translation_api;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconStackdriverOverviewBlock' : ss + 'gcp.management_tools.stackdriver;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconMonitoringBlock' : ss + 'gcp.management_tools.monitoring;verticalLabelPosition=bottom;verticalAlign=top',
 //			'GCPIconLoggingBlock' NA
-			'GCPIconErrorReportingBlock' : ss + 'gcp.management_tools.error_reporting',
-			'GCPIconTraceBlock' : ss + 'gcp.management_tools.trace',
-			'GCPIconDebuggerBlock' : ss + 'gcp.management_tools.debugger',
-			'GCPIconDeploymentManagerBlock' : ss + 'gcp.management_tools.deployment_manager',
-			'GCPIconCloudEndpointsBlock' : ss + 'gcp.management_tools.cloud_endpoints',
-			'GCPIconCloudToolsForPowerShellBlock' : ss + 'gcp.developer_tools.cloud_tools_for_powershell',
-			'GCPIconCloudToolsForVisualStudioBlock' : ss + 'gcp.developer_tools.cloud_tools_for_visual_studio',
-			'GCPIconCloudIAMBlock' : ss + 'gcp.identity_and_security.cloud_iam',
-			'GCPIconGCPLogoBlock' : ss + 'gcp.extras.generic_gcp',
-			'GCPIconBlankBlock' : ss + 'gcp.extras.blue_hexagon',
+			'GCPIconErrorReportingBlock' : ss + 'gcp.management_tools.error_reporting;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconTraceBlock' : ss + 'gcp.management_tools.trace;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconDebuggerBlock' : ss + 'gcp.management_tools.debugger;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconDeploymentManagerBlock' : ss + 'gcp.management_tools.deployment_manager;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudEndpointsBlock' : ss + 'gcp.management_tools.cloud_endpoints;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudToolsForPowerShellBlock' : ss + 'gcp.developer_tools.cloud_tools_for_powershell;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudToolsForVisualStudioBlock' : ss + 'gcp.developer_tools.cloud_tools_for_visual_studio;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconCloudIAMBlock' : ss + 'gcp.identity_and_security.cloud_iam;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconGCPLogoBlock' : ss + 'gcp.extras.generic_gcp;verticalLabelPosition=bottom;verticalAlign=top',
+			'GCPIconBlankBlock' : ss + 'gcp.extras.blue_hexagon;verticalLabelPosition=bottom;verticalAlign=top',
 //Equation
 			'Equation' : cs, //TODO
 //Walls
@@ -1531,13 +1536,13 @@
 //Doors & Windows
 			'fpWindow' : s + 'floorplan.window',
 			'fpOpening' : 'shape=rect',
-			'fpDoor' : s + 'floorplan.doorLeft;flipV=1', //TODO
-			'fpDoubleDoor' : s + 'floorplan.doorDouble;flipV=1', //TODO
+			'fpDoor' : cs,
+			'fpDoubleDoor' : cs,
 //Stairs			
 			'fpStairs' : s + 'floorplan.stairs;direction=north',
-			'fpStairsDirectional' : s + 'floorplan.stairs;direction=north',
-			'fpStairsCurved' : cs, //TODO
-			'fpStairsCurvedWide' : cs, //TODO
+			'fpStairsDirectional' : s + 'floorplan.stairs;direction=north;verticalAlign=bottom',
+//			'fpStairsCurved' NA
+//			'fpStairsCurvedWide' NA
 //Desks
 //			'fpDeskEndSegment' NA
 			'fpDeskLongSegment' : '',
@@ -1583,8 +1588,8 @@
 			'fpRestroomToiletPrivate' : s + 'floorplan.toilet',
 			'fpRestroomToiletPublic' : s + 'floorplan.toilet',
 //			'fpRestroomBidet' NA
-			'fpRestroomLights' : cs, //TODO
-			'fpRestroomSinks' : cs, //TODO
+			'fpRestroomLights' : cs,
+			'fpRestroomSinks' : cs,
 //			'fpRestroomGrabBar' NA
 			'fpRestroomBathtub' : s + 'floorplan.bathtub;direction=south',
 			'fpRestroomShower' : s + 'floorplan.shower;flipH=1',
@@ -1594,7 +1599,7 @@
 			'fpRestroomMirror' : 'shape=line;strokeWidth=3',
 //			'fpDresserOrnateMirror' NA
 //			'fpRestroomToiletPaper' NA
-//			'fpRestroomStalls' NA
+			'fpRestroomStalls' : cs,
 //Beds
 			'fpBedDouble' : s + 'floorplan.bed_double',
 			'fpBedSingle' : s + 'floorplan.bed_single',
@@ -1642,20 +1647,20 @@
 			'fpPiano' : s + 'floorplan.piano',
 //			'fpPianoBench' : 'absoluteArcSize=1;arcSize=' + arcSize + ';rounded=1',
 //Equipment
-			'PEAxialCompressor' : s + 'pid.compressors.centrifugal_compressor_-_turbine_driven',
-			'PECentrifugalCompressor' : s + 'pid.compressors.centrifugal_compressor',
-			'PECentrifugalCompressor2' : s + 'pid.compressors.centrifugal_compressor_-_turbine_driven',
+			'PEAxialCompressor' : s + 'pid.compressors.centrifugal_compressor_-_turbine_driven;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECentrifugalCompressor' : s + 'pid.compressors.centrifugal_compressor;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECentrifugalCompressor2' : s + 'pid.compressors.centrifugal_compressor_-_turbine_driven;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PECentrifugalCompressor3' NA
-			'PEReciprocationCompressor' : s + 'pid.compressors.reciprocating_compressor',
-			'PERotaryCompressorBlock' : s + 'pid.compressors.rotary_compressor',
-			'PERotaryCompressor2Block' : s + 'pid.compressors.compressor_and_silencers',
-			'PEConveyorBlock' : s + 'pid2misc.conveyor',
+			'PEReciprocationCompressor' : s + 'pid.compressors.reciprocating_compressor;verticalLabelPosition=bottom;verticalAlign=top',
+			'PERotaryCompressorBlock' : s + 'pid.compressors.rotary_compressor;verticalLabelPosition=bottom;verticalAlign=top',
+			'PERotaryCompressor2Block' : s + 'pid.compressors.compressor_and_silencers;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEConveyorBlock' : s + 'pid2misc.conveyor;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEOverheadConveyorBlock' NA
 //			'PEScraperConveyorBlock' NA
 //			'PEScrewConveyorBlock' NA
 //			'PEPositiveDisplacementBlock' NA
 //			'PEPositiveDisplacement2' NA
-			'PEElevator1Block' : s + 'pid.misc.bucket_elevator;flipH=1',
+			'PEElevator1Block' : s + 'pid.misc.bucket_elevator;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEElevator2Block' NA
 //			'PEHoistBlock' NA
 //			'PESkipHoistBlock' NA
@@ -1665,9 +1670,9 @@
 //			'PELiquidRingVacuumBlock' NA
 //			'PETurbineDriverBlock' NA
 //			'PEDoubleFlowTurbineBlock' NA
-			'PEAgitatorMixerBlock' : s + 'pid.agitators.agitator_(propeller)',
-			'PEDrumBlock' : s + 'pid.vessels.drum_or_condenser',
-			'PETankEquipmentBlock' : s + 'pid.vessels.tank',
+			'PEAgitatorMixerBlock' : s + 'pid.agitators.agitator_(propeller);verticalLabelPosition=bottom;verticalAlign=top',
+			'PEDrumBlock' : s + 'pid.vessels.drum_or_condenser;verticalLabelPosition=bottom;verticalAlign=top',
+			'PETankEquipmentBlock' : s + 'pid.vessels.tank;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PECentrifugalBlower' NA
 //			'PEAlkylationBlock' NA
 //			'PEBoomLoaderBlock' NA
@@ -1676,17 +1681,17 @@
 //			'PEFluidizedReactorBlock' NA
 //			'PETubularBlock' NA
 //			'PEReformerBlock' NA
-			'PEMixingReactorBlock' : s + 'pid.vessels.mixing_reactor',
+			'PEMixingReactorBlock' : s + 'pid.vessels.mixing_reactor;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEHydrodesulferizationBlock' NA
 //			'PEHydrocrackingBlock' NA
-			'PEPlateTowerBlock' : s + 'pid2misc.column;columnType=baffle',
-			'PEPackedTowerBlock' : s + 'pid2misc.column;columnType=fixed',
+			'PEPlateTowerBlock' : s + 'pid2misc.column;columnType=baffle;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEPackedTowerBlock' : s + 'pid2misc.column;columnType=fixed;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEAutomaticStokerBlock' NA
 //			'PEOilBurnerBlock' NA
 //			'PECounterflowForcedDraftBlock' NA
 //			'PECounterflowNaturalDraftBlock' NA
 //			'PECrossflowInductedBlock' NA
-			'PEFurnaceBlock' : s + 'pid.vessels.furnace',
+			'PEFurnaceBlock' : s + 'pid.vessels.furnace;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEChimneyTowerBlock' NA
 //Piping
 			'PEOneToMany' : cs, //TODO
@@ -1735,18 +1740,18 @@
 			'PERotaryValve' : s + 'pid.piping.rotary_valve',
 			'PEExpansionJoint' : s + 'pid.piping.expansion_joint',
 //Vessels
-			'PEVesselBlock' : cs, //TODO
-			'PEOpenTankBlock' : s + 'pid.vessels.container,_tank,_cistern', //TODO
-			'PEOpenTopTank' : s + 'pid.vessels.container,_tank,_cistern',
-			'PEClosedTankBlock' : cs, //TODO
-			'PEStorageSphereBlock' : s + 'pid.vessels.storage_sphere',
-			'PEColumnBlock' : s + 'pid.vessels.pressurized_vessel', //TODO
-			'PEBagBlock' : s + 'pid.vessels.bag',
-			'PEGasCylinderBlock' : s + 'pid.vessels.gas_bottle',
-			'PEGasHolderBlock' : s + 'pid.vessels.gas_holder',
-			'PEClarifierBlock' : s + 'pid.vessels.bunker_(conical_bottom)',
-//			'PETankBlock' NA
-			'PETrayColumnBlock' : s + 'pid2misc.column;columnType=tray',
+			'PEVesselBlock' : cs,
+			'PEOpenTankBlock' : s + 'pid.vessels.container,_tank,_cistern;verticalLabelPosition=bottom;verticalAlign=top', //not all versions supported
+			'PEOpenTopTank' : s + 'pid.vessels.container,_tank,_cistern;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEClosedTankBlock' : cs,
+			'PEStorageSphereBlock' : s + 'pid.vessels.storage_sphere;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEColumnBlock' : cs,
+			'PEBagBlock' : s + 'pid.vessels.bag;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEGasCylinderBlock' : s + 'pid.vessels.gas_bottle;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEGasHolderBlock' : s + 'pid.vessels.gas_holder;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEClarifierBlock' : s + 'pid.vessels.bunker_(conical_bottom);verticalLabelPosition=bottom;verticalAlign=top',
+			'PETankBlock' : s + 'pid.vessels.tank_(conical_roof);verticalLabelPosition=bottom;verticalAlign=top',
+			'PETrayColumnBlock' : s + 'pid2misc.column;columnType=tray;verticalLabelPosition=bottom;verticalAlign=top',
 			'PEReactionVesselBlock' : s + 'pid.vessels.reactor',
 			'PEBin' : s + 'pid.vessels.tank_(conical_bottom)',
 			'PEDomeRoofTank' : s + 'pid.vessels.tank_(dished_roof)',
@@ -1755,77 +1760,77 @@
 //			'PEDoubleWallTank' NA
 //			'PEOnionTank' NA
 //Heat Exchangers
-			'PEBoilerBlock' : s + 'pid.misc.boiler_(dome)',
-			'PEEquipmentBoilerBlock' : s + 'pid.misc.boiler_(dome)',
-			'PEReboilerBlock' : s + 'pid.heat_exchangers.reboiler',
-			'PECondenserBlock' : s + 'pid.heat_exchangers.heat_exchanger_(straight_tubes)',
-			'PEEquipmentCondenserBlock' : s + 'pid.heat_exchangers.condenser',
+			'PEBoilerBlock' : s + 'pid.misc.boiler_(dome);verticalLabelPosition=bottom;verticalAlign=top',
+			'PEEquipmentBoilerBlock' : s + 'pid.misc.boiler_(dome);verticalLabelPosition=bottom;verticalAlign=top',
+			'PEReboilerBlock' : s + 'pid.heat_exchangers.reboiler;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECondenserBlock' : s + 'pid.heat_exchangers.heat_exchanger_(straight_tubes);verticalLabelPosition=bottom;verticalAlign=top',
+			'PEEquipmentCondenserBlock' : s + 'pid.heat_exchangers.condenser;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEEvaporativeCondenserBlock' NA
-			'PECoolingTowerBlock' : s + 'pid.misc.cooling_tower',
-			'PEHeatExchangerBlock' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1',
+			'PECoolingTowerBlock' : s + 'pid.misc.cooling_tower;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEHeatExchangerBlock' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEAirCooledExchangerBlock' NA
-			'PEHairpinExchangerBlock' : s + 'pid.heat_exchangers.hairpin_exchanger',
-			'PEPlateAndFrameHeatExchangerBlock' : s + 'pid.heat_exchangers.plate_and_frame_heat_exchanger',
-			'PESpiralHeatExchanger' : s + 'pid.heat_exchangers.spiral_heat_exchanger',
-			'PEUTubeHeatExchangerBlock' : s + 'pid.heat_exchangers.u-tube_heat_exchanger',
-			'PEDoublePipeHeatBlock' : s + 'pid.heat_exchangers.double_pipe_heat_exchanger',
-			'PEShellAndTubeHeat1Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1',
-			'PEShellAndTubeHeat2Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_2',
-			'PEShellAndTubeHeat3Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1;direction=north',
-			'PESinglePassHeatBlock' : s + 'pid.heat_exchangers.single_pass_heat_exchanger',
+			'PEHairpinExchangerBlock' : s + 'pid.heat_exchangers.hairpin_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEPlateAndFrameHeatExchangerBlock' : s + 'pid.heat_exchangers.plate_and_frame_heat_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
+			'PESpiralHeatExchanger' : s + 'pid.heat_exchangers.spiral_heat_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEUTubeHeatExchangerBlock' : s + 'pid.heat_exchangers.u-tube_heat_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEDoublePipeHeatBlock' : s + 'pid.heat_exchangers.double_pipe_heat_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEShellAndTubeHeat1Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEShellAndTubeHeat2Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_2;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEShellAndTubeHeat3Block' : s + 'pid.heat_exchangers.shell_and_tube_heat_exchanger_1;direction=north;verticalLabelPosition=bottom;verticalAlign=top',
+			'PESinglePassHeatBlock' : s + 'pid.heat_exchangers.single_pass_heat_exchanger;verticalLabelPosition=bottom;verticalAlign=top',
 			'PEHeaterBlock' : s + 'pid.heat_exchangers.heater',
 //Pumps
-			'PEEjectorInjectorBlock' : s + 'pid.fittings.injector',
-			'PECompressorTurbineBlock' : s + 'pid.engines.turbine;flipH=1', //TODO
-//			'PEMotorDrivenTurbineBlock' NA
-			'PETripleFanBlades2Block' : s + 'pid2misc.fan;fanType=common',
-			'PEFanBlades2Block' : s + 'pid2misc.fan;fanType=common', //TODO
-			'PECentrifugalPumpBlock' : s + 'pid.pumps.centrifugal_pump_1', //TODO
-			'PECentrifugalPump' : s + 'pid.pumps.centrifugal_pump_1',
-			'PECentrifugalPump2' : s + 'pid.pumps.centrifugal_pump_2',
-			'PECentrifugalPump3' : s + 'pid.pumps.centrifugal_pump_1;flipH=1',
-			'PEGearPumpBlock' : s + 'pid.pumps.gear_pump',
-			'PEHorizontalPump' : s + 'pid.pumps.horizontal_pump',
-			'PEProgressiveCavityPump' : s + 'pid.pumps.cavity_pump;flipH=1;flipV=1',
-			'PEScrewPump' : s + 'pid.pumps.screw_pump',
-			'PEScrewPump2' : s + 'pid.pumps.screw_pump_2;flipH=1',
-			'PESumpPump' : s + 'pid.pumps.sump_pump',
-			'PEVacuumPump' : s + 'pid.pumps.vacuum_pump',
-			'PEVerticalPump' : s + 'pid.pumps.vertical_pump',
-			'PEVerticalPump2' : s + 'pid.pumps.vertical_pump',
+			'PEEjectorInjectorBlock' : s + 'pid.fittings.injector;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECompressorTurbineBlock' : cs,
+			'PEMotorDrivenTurbineBlock' : cs,
+//			'PETripleFanBlades2Block' NA
+//			'PEFanBlades2Block' : NA
+			'PECentrifugalPumpBlock' : s + 'pid.pumps.gas_blower;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECentrifugalPump' : s + 'pid.pumps.centrifugal_pump_1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECentrifugalPump2' : s + 'pid.pumps.centrifugal_pump_2;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECentrifugalPump3' : s + 'pid.pumps.centrifugal_pump_1;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEGearPumpBlock' : s + 'pid.pumps.gear_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEHorizontalPump' : s + 'pid.pumps.horizontal_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEProgressiveCavityPump' : s + 'pid.pumps.cavity_pump;flipH=1;flipV=1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEScrewPump' : s + 'pid.pumps.screw_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEScrewPump2' : s + 'pid.pumps.screw_pump_2;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
+			'PESumpPump' : s + 'pid.pumps.sump_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEVacuumPump' : s + 'pid.pumps.vacuum_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEVerticalPump' : s + 'pid.pumps.vertical_pump;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEVerticalPump2' : s + 'pid.pumps.vertical_pump;verticalLabelPosition=bottom;verticalAlign=top',
 //Instruments
-			'PEIndicatorBlock' : s + 'pid2inst.discInst;mounting=room', //TODO
-			'PEIndicator2Block' : s + 'pid2inst.indicator;mounting=room;indType=inst', //TODO
+			'PEIndicatorBlock' : cs,
+			'PEIndicator2Block' : cs,
 			'PEIndicator3Block' : s + 'pid2inst.discInst;mounting=field',
 			'PEIndicator4Block' : s + 'pid2inst.indicator;mounting=field;indType=inst',
 //			'PEIndicator5Block' NA
-			'PESharedIndicatorBlock' : s + 'pid2inst.sharedCont;mounting=room', //TODO
-			'PESharedIndicator2Block' : s + 'pid2inst.indicator;mounting=room;indType=ctrl', //TODO
-//			'PEComputerIndicatorBlock' NA
-			'PEProgrammableIndicatorBlock' : s + 'pid2inst.progLogCont;mounting=room', //TODO
+			'PESharedIndicatorBlock' : cs,
+			'PESharedIndicator2Block' : cs,
+			'PEComputerIndicatorBlock' : cs,
+			'PEProgrammableIndicatorBlock' : cs,
 //Valves
-			'PEGateValveBlock' : s + 'pid2valves.valve;valveType=gate', //TODO
-			'PEGlobeValveBlock' : s + 'pid2valves.valve;valveType=globe', //TODO
-			'PEControlValveBlock' : s + 'pid2valves.valve;valveType=gate;actuator=diaph', //TODO
-			'PENeedleValveBlock' : s + 'pid2valves.valve;valveType=needle',
+			'PEGateValveBlock' : cs, //TODO not all variants covered
+			'PEGlobeValveBlock' : cs,
+			'PEControlValveBlock' : s + 'pid2valves.valve;valveType=gate;actuator=diaph;verticalLabelPosition=bottom;verticalAlign=top',  //TODO not all variants covered
+			'PENeedleValveBlock' : s + 'pid2valves.valve;valveType=needle;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEButterflyValveBlock' NA
-			'PEButterflyValve2Block' : s + 'pid2valves.valve;valveType=butterfly',
-//			'PEBallValveBlock' NA
-			'PEDiaphragmBlock' : s + 'pid2valves.valve;valveType=ball', 
-//			'PEPlugValveBlock' NA
-			'PECheckValveBlock' : s + 'pid2valves.valve;valveType=check',
-			'PECheckValve2Block' : s + 'pid2valves.valve;valveType=check',
-			'PEAngleValveBlock' : s + 'pid2valves.valve;valveType=angle;actuator=none',
-			'PEAngleGlobeValveBlock' : s + 'pid2valves.valve;valveType=angleGlobe;actuator=man;flipH=1', //TODO
-			'PEPoweredValveBlock' : s + 'pid2valves.valve;valveType=gate;actuator=digital', //TODO
-			'PEFloatOperatedValveBlock' : s + 'pid2valves.valve;valveType=gate;actuator=singActing',
-//			'PENeedleValve2Block' NA
-			'PEThreeWayValveBlock' : s + 'pid2valves.valve;valveType=threeWay;actuator=none',
+			'PEButterflyValve2Block' : s + 'pid2valves.valve;flipH=1;valveType=butterfly;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEBallValveBlock' : s + 'pid2valves.valve;valveType=ball;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEDiaphragmBlock' : s + 'pid2valves.valve;valveType=ball;verticalLabelPosition=bottom;verticalAlign=top', 
+			'PEPlugValveBlock' : s + 'pid2valves.valve;valveType=ball;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECheckValveBlock' : s + 'pid2valves.valve;valveType=check;verticalLabelPosition=bottom;verticalAlign=top',
+			'PECheckValve2Block' : s + 'pid2valves.valve;valveType=check;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEAngleValveBlock' : cs,
+			'PEAngleGlobeValveBlock' : cs,
+			'PEPoweredValveBlock' : cs,
+			'PEFloatOperatedValveBlock' : s + 'pid2valves.valve;valveType=gate;actuator=singActing;verticalLabelPosition=bottom;verticalAlign=top',
+			'PENeedleValve2Block' : s + 'pid2valves.valve;valveType=needle;verticalLabelPosition=bottom;verticalAlign=top',
+			'PEThreeWayValveBlock' : s + 'pid2valves.valve;valveType=threeWay;actuator=none;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEFourWayValveBlock' NA
 //			'PEGaugeBlock' NA
-			'PEBleederValveBlock' : s + 'pid2valves.blockBleedValve;actuator=none',
+			'PEBleederValveBlock' : s + 'pid2valves.blockBleedValve;actuator=none;verticalLabelPosition=bottom;verticalAlign=top',
 //			'PEOrificeBlock' NA
-			'PERotameterBlock' : s + 'pid.flow_sensors.rotameter;flipH=1',
+			'PERotameterBlock' : s + 'pid.flow_sensors.rotameter;flipH=1;verticalLabelPosition=bottom;verticalAlign=top',
 //Venn Gradient
 			'VennGradientColor1' : 'shape=ellipse;fillOpacity=35',
 			'VennGradientColor2' : 'shape=ellipse;fillOpacity=35',
@@ -1977,15 +1982,15 @@
 //			'iOS7ActivitySlideshow' NA
 //			'iOS7ActivityUse as wallpaper' NA
 //UI Containers
-			'UI2BrowserBlock' : s + 'mockup.containers.browserWindow;mainText=,', //TODO
-			'UI2WindowBlock' : s + 'mockup.containers.window;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=', 
-			'UI2DialogBlock' : cs, //TODO
+			'UI2BrowserBlock' : cs,
+			'UI2WindowBlock' : cs, 
+			'UI2DialogBlock' : cs,
 			'UI2AreaBlock' : '',
 			'UI2ElementBlock' : '',
-			'UI2AccordionBlock' : cs, //TODO
-			'UI2TabBarContainerBlock' : cs, //TODO
-			'UI2TabBar2ContainerBlock' : cs, //TODO
-			'UI2VTabBarContainerBlock' : cs, //TODO
+			'UI2AccordionBlock' : cs,
+			'UI2TabBarContainerBlock' : cs,
+			'UI2TabBar2ContainerBlock' : cs,
+			'UI2VTabBarContainerBlock' : cs,
 			'UI2VScrollBlock' : s + 'mockup.navigation.scrollBar;direction=north',
 			'UI2HScrollBlock' : s + 'mockup.navigation.scrollBar',
 			'UI2VerticalSplitterBlock' : s + 'mockup.forms.splitter;direction=north',
@@ -2005,38 +2010,39 @@
 //			'Image_ui_formatting_toolbar2'
 //UI Input
 			'UI2ButtonBlock' : 'rounded=1;arcSize=25;',
-			'UI2CheckBoxBlock' : cs, //TODO
-			'UI2HorizontalCheckBoxBlock' : cs, //TODO
-			'UI2RadioBlock' : cs, //TODO
-			'UI2HorizontalRadioBlock' : cs, //TODO
+			'UI2CheckBoxBlock' : cs,
+			'UI2HorizontalCheckBoxBlock' : cs,
+			'UI2RadioBlock' : cs,
+			'UI2HorizontalRadioBlock' : cs,
 			'UI2ColorPickerBlock' : s + 'mockup.forms.colorPicker;chosenColor=#aaddff',
 			'UI2TextInputBlock' : '',
 			'UI2SelectBlock' : s + 'mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666',
-			'UI2VSliderBlock' : s + 'mockup.forms.horSlider;sliderStyle=basic;sliderPos=20;handleStyle=circle;direction=north',
-			'UI2HSliderBlock' : s + 'mockup.forms.horSlider;sliderStyle=basic;sliderPos=20;handleStyle=circle',
-//			'UI2DatePickerBlock' NA
-			'UI2SearchBlock' : s + 'mockup.forms.searchBox;mainText=;flipH=1',
-			'UI2NumericStepperBlock' : s + 'mockup.forms.spinner;spinLayout=right;spinStyle=normal;adjStyle=triangle;fillColor=#000000;mainText=',
+			'UI2VSliderBlock' : cs,
+			'UI2HSliderBlock' : cs,
+			'UI2DatePickerBlock' : cs,
+			'UI2SearchBlock' : cs,
+			'UI2NumericStepperBlock' : cs,
 			'UI2TableBlock' : cs, //TODO
 //UI Menus
-			'UI2ButtonBarBlock' : cs, //TODO
-			'UI2VerticalButtonBarBlock' : cs, //TODO
-			'UI2LinkBarBlock' : cs, //TODO
-			'UI2BreadCrumbsBlock' : cs, //TODO
-			'UI2MenuBarBlock' : cs, //TODO
-			'UI2AtoZBlock' : s + 'mockup.text.alphanumeric;linkText=;fontStyle=4',
-			'UI2PaginationBlock' : s + 'mockup.navigation.pagination;linkText=;fontStyle=4',
-			'UI2ContextMenuBlock' : cs, //TODO
+			'UI2ButtonBarBlock' : cs,
+			'UI2VerticalButtonBarBlock' : cs,
+			'UI2LinkBarBlock' : cs,
+			'UI2BreadCrumbsBlock' : cs,
+			'UI2MenuBarBlock' : cs,
+			'UI2AtoZBlock' : cs,
+			'UI2PaginationBlock' : cs,
+			'UI2ContextMenuBlock' : cs,
 			'UI2TreePaneBlock' : cs, //TODO
 			'UI2PlaybackControlsBlock' : s + 'mockup.misc.playbackControls;fillColor=#ffffff;strokeColor=#999999;fillColor2=#99ddff;strokeColor2=none;fillColor3=#ffffff;strokeColor3=none',
 			'Image_ui_formatting_toolbar' : s + 'mockup.menus_and_buttons.font_style_selector_2',
 //UI Misc
-			'UI2ProgressBarBlock' : s + 'mockup.misc.progressBar;fillColor2=#888888;barPos=25',
+			'UI2ProgressBarBlock' : cs,
 			'UI2HelpIconBlock' : s + 'mockup.misc.help_icon',
-			'UI2BraceNoteBlock' : s + 'mockup.markup.curlyBrace;direction=north', //TODO
-			'UI2TooltipBlock' : s + 'basic.rectangular_callout;flipV=1', //TODO
-			'UI2CalloutBlock' : 'shape=ellipse',
-			'UI2AlertBlock' : cs, //TODO
+			'UI2BraceNoteBlock' : cs,
+			'UI2TooltipBlock' : s + 'basic.rectangular_callout;flipV=1',
+			'UI2TooltipSquareBlock' : cs,
+			'UI2CalloutBlock' : cs,
+			'UI2AlertBlock' : cs,
 //iOS 6 iPad Elements
 			'Image_ipad_ipad' : s + 'ios.iPad;bgStyle=bgGreen',
 			'iPadGrayBackgroundBlock' : '',
@@ -2172,6 +2178,13 @@
 			if (props.Note.t != null)
 			{
 				text = props.Note;
+			}
+		}
+		else if (text == null && props.Title != null)
+		{
+			if (props.Title.t != null)
+			{
+				text = props.Title;
 			}
 		}
 		else if (props.t != null)
@@ -2441,13 +2454,11 @@
 		var m = getTextM(properties);
 		
 		//adds text alignment
-		var isA = false;
-		
 		if (m != null)
 		{
 			var i = 0;
 			
-			while ((!isA) && (i < m.length))
+			while (i < m.length)
 			{
 				var currM = m[i];
 				
@@ -2455,7 +2466,6 @@
 				{
 					if (currM.v != null)
 					{
-						isA = true;
 						return 'align=' + currM.v + ';';
 					}
 				}
@@ -2464,12 +2474,7 @@
 			}
 		}
 		
-//		if (!isA)
-//		{
-//			return createStyle(mxConstants.STYLE_ALIGN, properties.TextAlign, 'center');
-//		}
-		
-		return 'align=center;';
+		return '';
 	}
 	
 	function getTextLeftSpacing(properties)
@@ -2656,7 +2661,7 @@
 			style += createStyle(mxConstants.STYLE_OPACITY, properties.Opacity, '100');
 		}
 
-		if (typeof properties.LineColor === 'string')
+		if (typeof properties.LineColor === 'string' && !hardOpacity.includes(action.Class))
 		{
 			if (properties.LineColor.length > 7)
 			{
@@ -2665,7 +2670,7 @@
 			}
 		}
 		
-		if (typeof properties.FillColor === 'string')
+		if (typeof properties.FillColor === 'string' && !hardOpacity.includes(action.Class))
 		{
 			if (properties.FillColor.length > 7)
 			{
@@ -2715,6 +2720,12 @@
 			{
 				deg -= 90;
 				cell.geometry.rotate90();
+				cell.geometry.rotate90();
+				cell.geometry.rotate90();
+			}
+			else if (rcw2.includes(action.Class))
+			{
+				deg += 180;
 				cell.geometry.rotate90();
 				cell.geometry.rotate90();
 			}
@@ -3115,7 +3126,7 @@
 						{
 							if (styleMap[obj.Class] == 'mxCompositeShape')
 							{
-								lookup[obj.id] = addCompositeShape(obj);
+								lookup[obj.id] = addCompositeShape(obj, select, graph);
 								queue.push(obj);
 								created = true;
 							}
@@ -3245,7 +3256,40 @@
 		}
 	};
 
-	function addCompositeShape(obj)
+	function addRouterEdge(x, y, edge, select, graph, cells, v, cell)
+	{
+	   	var dummy = new mxCell('', new mxGeometry(x, y, 0, 0), 'strokeColor=none;fillColor=none;');
+	   	dummy.vertex = true;
+	   	v.insert(dummy);
+	   	cells = [dummy];
+	   	
+		var e = sb.cloneCell(edge);
+		cell.insertEdge(e, false);
+		dummy.insertEdge(e, true);
+		cells.push(e);
+		select.push(graph.addCell(e, null, null, null, null));
+	};
+   	
+	function addFloatingEdge(x1, y1, x2, y2, edge, select, graph, cells, v)
+	{
+	   	var dummy1 = new mxCell('', new mxGeometry(x1, y1, 0, 0), 'strokeColor=none;fillColor=none;');
+	   	dummy1.vertex = true;
+	   	v.insert(dummy1);
+	   	cells = [dummy1];
+	   	
+	   	var dummy2 = new mxCell('', new mxGeometry(x2, y2, 0, 0), 'strokeColor=none;fillColor=none;');
+	   	dummy2.vertex = true;
+	   	v.insert(dummy2);
+	   	cells = [dummy2];
+	   	
+		var e = sb.cloneCell(edge);
+		dummy1.insertEdge(e, true);
+		dummy2.insertEdge(e, false);
+		cells.push(e);
+		select.push(graph.addCell(e, null, null, null, null));
+	};
+   	
+	function addCompositeShape(obj, select, graph)
 	{
 		var a = getAction(obj);
 		var p = a.Properties;
@@ -3262,7 +3306,8 @@
 		switch (obj.Class)
 		{
 			case 'BraceNoteBlock' :
-				
+			case 'UI2BraceNoteBlock' :
+								
 				var isRightBrace = false;
 				
 				if (p.BraceDirection != null)
@@ -4649,14 +4694,6 @@
 				
 				break;
 				
-			case 'ERDEntityBlock' :
-				break;
-			case 'ERDEntityBlock2' :
-				break;
-			case 'ERDEntityBlock3' :
-				break;
-			case 'ERDEntityBlock4' :
-				break;
 			case 'SMPage' :
 				if (p.Group)
 				{
@@ -5833,253 +5870,3361 @@
 				}
 
 				break;
+			case 'AWSElasticComputeCloudBlock2' :
+				v.style += 'strokeColor=none;shape=mxgraph.aws3.ec2;verticalLabelPosition=bottom;align=center;verticalAlign=top;' +
+					getLabelStyle(p.Title) + 
+					getFillColor(p, a) + 
+					getOpacity(p, a) + 
+					getShadow(p);
+				
+				v.value = convertText(p.Title);
+				
+				break;
+				
+			case 'AWSRoute53Block2' :
+				v.style += 'strokeColor=none;shape=mxgraph.aws3.route_53;verticalLabelPosition=bottom;align=center;verticalAlign=top;' +
+					getLabelStyle(p.Title) + 
+					getFillColor(p, a) + 
+					getOpacity(p, a) + 
+					getShadow(p);
+				
+				v.value = convertText(p.Title);
+				
+				break;
+				
+			case 'AWSRDBSBlock2' :
+				v.style += 'strokeColor=none;shape=mxgraph.aws3.rds;verticalLabelPosition=bottom;align=center;verticalAlign=top;' +
+					getLabelStyle(p.Title) + 
+					getFillColor(p, a) + 
+					getOpacity(p, a) + 
+					getShadow(p);
+				
+				v.value = convertText(p.Title);
+				
+				break;
+				
 			case 'NET_RingNetwork' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+			   	var cell = new mxCell('', new mxGeometry(w * 0.25, h * 0.25, w * 0.5, h * 0.5), 'html=1;shape=ellipse;perimeter=ellipsePerimeter;strokeColor=#29AAE1;strokeWidth=2;');
+			   	cell.vertex = true;
+			   	v.insert(cell);
+			   	var cells = [cell];
+			   	cell.style += getFillColor(p, a);
+			   	
+			   	var edge = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=none;dashed=0;html=1;strokeColor=#29AAE1;strokeWidth=2;');
+			   	edge.geometry.relative = true;
+		    	edge.edge = true;
+		    	
+		    	addRouterEdge(w * 0.5, 0, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w * 0.855, h * 0.145, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w, h * 0.5, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w * 0.855, h * 0.855, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w * 0.5, h, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w * 0.145, h * 0.855, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(0, h * 0.5, edge, select, graph, cells, v, cell);
+		    	addRouterEdge(w * 0.145, h * 0.145, edge, select, graph, cells, v, cell);
 				break;
+				
 			case 'NET_Ethernet' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+			   	var cell = new mxCell('', new mxGeometry(0, h * 0.5 - 10, w, 20), 'shape=mxgraph.networks.bus;gradientColor=none;gradientDirection=north;fontColor=#ffffff;perimeter=backbonePerimeter;backboneSize=20;fillColor=#29AAE1;strokeColor=#29AAE1;');
+			   	cell.vertex = true;
+			   	v.insert(cell);
+			   	var cells = [cell];
+
+				var edge = new mxCell('', new mxGeometry(0, 0, 0, 0), 'strokeColor=#29AAE1;edgeStyle=none;rounded=0;endArrow=none;html=1;strokeWidth=2;');
+				edge.geometry.relative = true;
+				edge.edge = true;
+
+			   	var cells = [cell];
+		    	var stepX = w / p.NumTopNodes;
+		    	
+			   	for (var i = 0; i < p.NumTopNodes; i++)
+			   	{
+			   		addRouterEdge(stepX * 0.5 + i * stepX, 0, edge, select, graph, cells, v, cell);
+			   	}
+			   	
+		    	stepX = w / p.NumBottomNodes;
+		    	
+			   	for (var i = 0; i < p.NumBottomNodes; i++)
+			   	{
+			   		addRouterEdge(stepX * 0.5 + i * stepX, h, edge, select, graph, cells, v, cell);
+			   	}
+			   	
 				break;
+				
 			case 'EE_OpAmp' :
+				v.style += 'shape=mxgraph.electrical.abstract.operational_amp_1;' + 
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Title);
+				
+				if (p.ToggleCharge)
+				{
+					v.style += 'flipV=1;';
+				}
+				
 				break;
-			case 'EE_ControlledAmp' :
+				
+			case 'EIMessageChannelBlock' :
+			case 'EIDatatypeChannelBlock' :
+			case 'EIInvalidMessageChannelBlock' :
+			case 'EIDeadLetterChannelBlock' :
+			case 'EIGuaranteedDeliveryBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				if (obj.Class == 'EIMessageChannelBlock')
+				{
+					var item1 = new mxCell('', new mxGeometry(0.5, 0.5, w * 0.9, 20), 'shape=mxgraph.eip.messageChannel;fillColor=#818181;part=1;');
+					item1.geometry.offset = new mxPoint( - w * 0.45, 0);
+				}
+				else if (obj.Class == 'EIDatatypeChannelBlock')
+				{
+					var item1 = new mxCell('', new mxGeometry(0.5, 0.5, w * 0.9, 20), 'shape=mxgraph.eip.dataChannel;fillColor=#818181;part=1;');
+					item1.geometry.offset = new mxPoint( - w * 0.45, 0);
+				}
+				else if (obj.Class == 'EIInvalidMessageChannelBlock')
+				{
+					var item1 = new mxCell('', new mxGeometry(0.5, 0.5, w * 0.9, 20), 'shape=mxgraph.eip.invalidMessageChannel;fillColor=#818181;part=1;');
+					item1.geometry.offset = new mxPoint( - w * 0.45, 0);
+				}
+				else if (obj.Class == 'EIDeadLetterChannelBlock')
+				{
+					var item1 = new mxCell('', new mxGeometry(0.5, 0.5, w * 0.9, 20), 'shape=mxgraph.eip.deadLetterChannel;fillColor=#818181;part=1;');
+					item1.geometry.offset = new mxPoint( - w * 0.45, 0);
+				}
+				else if (obj.Class == 'EIGuaranteedDeliveryBlock')
+				{
+					var item1 = new mxCell('', new mxGeometry(0.5, 0.5, 20, 27), 'shape=cylinder;fillColor=#818181;part=1;');
+					item1.geometry.offset = new mxPoint( -10, -7);
+				}
+				
+				item1.geometry.relative = true;
+				item1.vertex = true;
+				v.insert(item1);
+
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p);
+
+			   	var edge = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge.geometry.relative = true;
+		    	edge.edge = true;
+		    	
+		    	addFloatingEdge(w * 0.15, h * 0.25, w * 0.85, h * 0.25, edge, select, graph, cells, v, cell);
+		    	
 				break;
-			case 'EE_Multiplexer' :
+
+			case 'EIChannelAdapterBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(0, h * 0.07, w * 0.21, h * 0.86), 'fillColor=#FFFF33;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+				
+				var item2 = new mxCell('', new mxGeometry(w * 0.26, h * 0.09, w * 0.2, h * 0.82), 'shape=mxgraph.eip.channel_adapter;fillColor=#4CA3D9;part=1;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+				
+				var item3 = new mxCell('', new mxGeometry(1, 0.5, w * 0.35, 20), 'shape=mxgraph.eip.messageChannel;fillColor=#818181;part=1;');
+				item3.geometry.relative = true;
+				item3.geometry.offset = new mxPoint( - w * 0.4, -10);
+				item3.vertex = true;
+				v.insert(item3);
+				item3.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+				
+				edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=none;dashed=0;html=1;strokeWidth=1;endFill=1;endSize=2;');
+		    	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	item1.insertEdge(edge1, true);
+		    	item2.insertEdge(edge1, false);
+				edge1.style += getStrokeColor(p, a); 
+
+				select.push(graph.addCell(edge1, null, null, null, null));
+
+				edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=block;startArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=2;startFill=1;startSize=2;');
+		    	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	item2.insertEdge(edge2, true);
+		    	item3.insertEdge(edge2, false);
+
+				select.push(graph.addCell(edge2, null, null, null, null));
+				
 				break;
-			case 'EE_Demultiplexer' :
-				break;
-			case 'EE_Capacitor1' :
-				break;
-			case 'EE_Capacitor2' :
-				break;
-			case 'EE_Diode' :
-				break;
-			case 'EE_Resistor' :
-				break;
-			case 'EE_Potentiometer' :
-				break;
-			case 'EE_Inductor' :
-				break;
-			case 'EE_Variable Inductor' :
-				break;
-			case 'EE_Motor' :
-				break;
-			case 'EE_IntegratedCircuit' :
-				break;
-			case 'EE_AcSource' :
-				break;
-			case 'EE_VoltageSource' :
-				break;
-			case 'EE_CurrentSource' :
-				break;
-			case 'EE_ControlledCurrentSource' :
-				break;
-			case 'EE_ControlledVoltageSource' :
-				break;
+				
 			case 'EIMessageBlock' :
-				break;
-			case 'EIMessageEndpointBlock' :
-				break;
 			case 'EICommandMessageBlock' :
-				break;
 			case 'EIDocumentMessageBlock' :
-				break;
 			case 'EIEventMessageBlock' :
+				v.style += 'strokeColor=none;fillColor=none;verticalLabelPosition=bottom;verticalAlign=top;' +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(0, 0, 17, 17), 'shape=ellipse;fillColor=#808080;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var messagesNum = p.Messages;
+				var oneH = (h - 17) / messagesNum;
+				var item2 = new Array();
+				var edge = new Array();
+				
+				for (var i = 0; i < messagesNum; i++)
+				{
+					var currY = oneH * (i + 1) - 3;
+ 					item2[i] = new mxCell('', new mxGeometry(w - 20, currY, 20, 20), 'part=1;');
+					item2[i].vertex = true;
+					v.insert(item2[i]);
+					
+					item2[i].style += 
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getOpacity(p, a) + 
+						getShadow(p) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+
+					switch(obj.Class)
+					{
+						case 'EIMessageBlock' :
+							item2[i].value = convertText(p['message_' + (i + 1)]);
+							item2.style += getLabelStyle(p['message_' + (i + 1)]);
+
+							break;
+						case 'EICommandMessageBlock' :
+							item2[i].value = 'C';
+							item2[i].style += 'fontStyle=1;fontSize=10;';
+							break;
+						case 'EIDocumentMessageBlock' :
+							item2[i].value = 'D';
+							item2[i].style += 'fontStyle=1;fontSize=10;';
+							break;
+						case 'EIEventMessageBlock' :
+							item2[i].value = 'E';
+							item2[i].style += 'fontStyle=1;fontSize=10;';
+							break;
+					}
+
+					edge[i] = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;');
+			    	edge[i].geometry.relative = true;
+			    	edge[i].edge = true;
+			    	item1.insertEdge(edge[i], false);
+			    	item2[i].insertEdge(edge[i], true);
+					edge[i].style += 
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p);
+
+					var wp = new Array();
+					wp.push(new mxPoint(x + 8.5, y + currY + 10));
+					
+					edge[i].geometry.points = wp;
+					select.push(graph.addCell(edge[i], null, null, null, null));
+				}
+
 				break;
+				
+			case 'EIMessageEndpointBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.45, h * 0.25, w * 0.3, h * 0.5), 'part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+	
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p);
+	
+			   	var edge = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge.geometry.relative = true;
+		    	edge.edge = true;
+		    	
+		    	addFloatingEdge(0, h * 0.5, w * 0.4, h * 0.5, edge, select, graph, cells, v, cell);
+		    	
+				break;
+			case 'EIPublishSubscribeChannelBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+			   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.85, h * 0.5, edge1, select, graph, cells, v, cell);
+		    	
+			   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.85, h * 0.15, edge2, select, graph, cells, v, cell);
+		    	
+			   	var edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge3.geometry.relative = true;
+		    	edge3.edge = true;
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.85, h * 0.85, edge3, select, graph, cells, v, cell);
+	    	
+				break;
+				
+			case 'EIMessageBusBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+			   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeWidth=1;endFill=1;endSize=4;startArrow=block;startFill=1;startSize=4;');
+			   	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	edge1.style += getStrokeColor(p, a);
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.95, h * 0.5, edge1, select, graph, cells, v, cell);
+		    	
+			   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;dashed=0;html=1;strokeWidth=1;endFill=1;endSize=4;startArrow=block;startFill=1;startSize=4;');
+			   	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	edge2.style += getStrokeColor(p, a);
+		    	addFloatingEdge(w * 0.3, h * 0.1, w * 0.3, h * 0.5, edge2, select, graph, cells, v, cell);
+		    	
+			   	var edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;dashed=0;html=1;strokeWidth=1;endFill=1;endSize=4;startArrow=block;startFill=1;startSize=4;');
+			   	edge3.geometry.relative = true;
+		    	edge3.edge = true;
+		    	edge3.style += getStrokeColor(p, a);
+		    	addFloatingEdge(w * 0.7, h * 0.1, w * 0.7, h * 0.5, edge3, select, graph, cells, v, cell);
+		    	
+			   	var edge4 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;dashed=0;html=1;strokeWidth=1;endFill=1;endSize=4;startArrow=block;startFill=1;startSize=4;');
+			   	edge4.geometry.relative = true;
+		    	edge4.edge = true;
+		    	edge4.style += getStrokeColor(p, a);
+		    	addFloatingEdge(w * 0.5, h * 0.5, w * 0.5, h * 0.9, edge4, select, graph, cells, v, cell);
+	    	
+				break;
+				
+			case 'EIRequestReplyBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.2, h * 0.21, w * 0.16, h * 0.24), 'part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p);
+
+			   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	
+		    	addFloatingEdge(w * 0.45, h * 0.33, w * 0.8, h * 0.33, edge1, select, graph, cells, v, cell);
+		    	
+				var item2 = new mxCell('', new mxGeometry(w * 0.64, h * 0.55, w * 0.16, h * 0.24), 'part=1;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p);
+
+			   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=none;rounded=0;endArrow=block;dashed=0;html=1;strokeColor=#818181;strokeWidth=1;endFill=1;endSize=6;');
+			   	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	
+		    	addFloatingEdge(w * 0.55, h * 0.67, w * 0.2, h * 0.67, edge2, select, graph, cells, v, cell);
+		    	
+				break;
+
+			case 'EIReturnAddressBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.1, h * 0.15, w * 0.8, h * 0.7), 'part=1;shape=mxgraph.eip.retAddr;fillColor=#FFE040;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p);
+				
+				break;
+				
+			case 'EICorrelationIDBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.04, h * 0.06, w * 0.18, h * 0.28), 'shape=ellipse;fillColor=#808080;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				item2 = new mxCell('', new mxGeometry(w * 0.2, h * 0.56, w * 0.2, h * 0.32), 'part=1;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+
+				item2.value = 'A';
+				item2.style += 'fontStyle=1;fontSize=10;';
+
+				edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;part=1;');
+		    	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	item1.insertEdge(edge1, false);
+		    	item2.insertEdge(edge1, true);
+				edge1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				var wp = new Array();
+				wp.push(new mxPoint(x + w * 0.13, y + h * 0.72));
+				
+				edge1.geometry.points = wp;
+				select.push(graph.addCell(edge1, null, null, null, null));
+	
+				var item3 = new mxCell('', new mxGeometry(w * 0.6, h * 0.06, w * 0.18, h * 0.28), 'shape=ellipse;fillColor=#808080;part=1;');
+				item3.vertex = true;
+				v.insert(item3);
+				item3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				item4 = new mxCell('', new mxGeometry(w * 0.76, h * 0.56, w * 0.2, h * 0.32), 'part=1;');
+				item4.vertex = true;
+				v.insert(item4);
+				item4.style += 
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+
+				item4.value = 'B';
+				item4.style += 'fontStyle=1;fontSize=10;';
+
+				edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;part=1;');
+		    	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	item3.insertEdge(edge2, false);
+		    	item4.insertEdge(edge2, true);
+				edge2.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				var wp2 = new Array();
+				wp2.push(new mxPoint(x + w * 0.69, y + h * 0.72));
+				
+				edge2.geometry.points = wp2;
+				select.push(graph.addCell(edge2, null, null, null, null));
+	
+				edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;endSize=6;part=1;');
+		    	edge3.geometry.relative = true;
+		    	edge3.edge = true;
+		    	item1.insertEdge(edge3, false);
+		    	item3.insertEdge(edge3, true);
+				edge3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				select.push(graph.addCell(edge3, null, null, null, null));
+				
+				break;
+
+			case 'EIMessageSequenceBlock' :
+				
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('1', new mxGeometry(w * 0.2, h * 0.4, w * 0.1, h * 0.19), 'fontStyle=1;fontSize=10;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var item2 = new mxCell('2', new mxGeometry(w * 0.45, h * 0.4, w * 0.1, h * 0.19), 'fontStyle=1;fontSize=10;part=1;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var item3 = new mxCell('3', new mxGeometry(w * 0.7, h * 0.4, w * 0.1, h * 0.19), 'fontStyle=1;fontSize=10;part=1;');
+				item3.vertex = true;
+				v.insert(item3);
+				item3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'curved=1;endArrow=block;html=1;endSize=3;part=1;');
+				item1.insertEdge(edge1, false);
+				item2.insertEdge(edge1, true);
+				
+				edge1.geometry.points = [new mxPoint(x + w * 0.375, y + h * 0.15)];
+				edge1.geometry.relative = true;
+				edge1.edge = true;
+				edge1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge1, null, null, null, null));
+				
+				var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'curved=1;endArrow=block;html=1;endSize=3;part=1;');
+				item2.insertEdge(edge2, false);
+				item3.insertEdge(edge2, true);
+				edge2.geometry.points = [new mxPoint(x + w * 0.675, y + h * 0.15)];
+				edge2.geometry.relative = true;
+				edge2.edge = true;
+				edge2.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge2, null, null, null, null));
+				
+				break;
+				
+			case 'EIMessageExpirationBlock' :
+				
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.3, h * 0.2, w * 0.4, h * 0.6), 'shape=mxgraph.ios7.icons.clock;flipH=1;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				break;
+				
 			case 'EIMessageBrokerBlock' :
+				v.style += 'strokeColor=none;fillColor=none;verticalLabelPosition=bottom;verticalAlign=top;' +
+					getFontSize(p) +
+					getFontColor(p) + 
+					getFontStyle(p) +
+					getTextAlignment(p); 
+				
+				v.value = convertText(p.Text);
+
+				var item1 = new mxCell('', new mxGeometry(w * 0.38, h * 0.42, w * 0.24, h * 0.16), 'part=1;fillColor=#aefe7d;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				var item2 = new mxCell('', new mxGeometry(w * 0.38, 0, w * 0.24, h * 0.16), 'part=1;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += 
+					getFillColor(p, a) + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				var item3 = new mxCell('', new mxGeometry(w * 0.76, h * 0.23, w * 0.24, h * 0.16), 'part=1;');
+				item3.vertex = true;
+				v.insert(item3);
+				item3.style = item2.style;
+
+				var item4 = new mxCell('', new mxGeometry(w * 0.76, h * 0.61, w * 0.24, h * 0.16), 'part=1;');
+				item4.vertex = true;
+				v.insert(item4);
+				item4.style = item2.style;
+
+				var item5 = new mxCell('', new mxGeometry(w * 0.38, h * 0.84, w * 0.24, h * 0.16), 'part=1;');
+				item5.vertex = true;
+				v.insert(item5);
+				item5.style = item2.style;
+
+				var item6 = new mxCell('', new mxGeometry(0, h * 0.61, w * 0.24, h * 0.16), 'part=1;');
+				item6.vertex = true;
+				v.insert(item6);
+				item6.style = item2.style;
+
+				var item7 = new mxCell('', new mxGeometry(0, h * 0.23, w * 0.24, h * 0.16), 'part=1;');
+				item7.vertex = true;
+				v.insert(item7);
+				item7.style = item2.style;
+
+				var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge1, false);
+				item2.insertEdge(edge1, true);
+				edge1.edge = true;
+				edge1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge1, null, null, null, null));
+				
+				var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge2, false);
+				item3.insertEdge(edge2, true);
+				edge2.edge = true;
+				edge2.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge2, null, null, null, null));
+				
+				var edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge3, false);
+				item4.insertEdge(edge3, true);
+				edge3.edge = true;
+				edge3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge3, null, null, null, null));
+				
+				var edge4 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge4, false);
+				item5.insertEdge(edge4, true);
+				edge4.edge = true;
+				edge4.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge4, null, null, null, null));
+				
+				var edge5 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge5, false);
+				item6.insertEdge(edge5, true);
+				edge5.edge = true;
+				edge5.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge5, null, null, null, null));
+				
+				var edge6 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'endArrow=none;part=1;');
+				item1.insertEdge(edge6, false);
+				item7.insertEdge(edge6, true);
+				edge6.edge = true;
+				edge6.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				select.push(graph.addCell(edge6, null, null, null, null));
+
 				break;
+			case 'EIDurableSubscriberBlock' :	
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+			   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;endFill=1;endSize=6;');
+			   	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.6, h * 0.25, edge1, select, graph, cells, v, cell);
+		    	
+			   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=elbowEdgeStyle;rounded=0;endArrow=block;endFill=1;endSize=6;');
+			   	edge2.geometry.relative = true;
+		    	edge2.edge = true;
+		    	addFloatingEdge(w * 0.05, h * 0.5, w * 0.6, h * 0.75, edge2, select, graph, cells, v, cell);
+		    	
+				var item1 = new mxCell('', new mxGeometry(w * 0.7, h * 0.1, w * 0.15, h * 0.32), 'shape=mxgraph.eip.durable_subscriber;part=1;fillColor=#818181;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				break;
+				
+			case 'EIControlBusBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.25, h * 0.25, w * 0.5, h * 0.5), 'shape=mxgraph.eip.control_bus;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+	
+				break;
+				
 			case 'EIMessageHistoryBlock' :
+				v.style += 'strokeColor=none;fillColor=none;verticalLabelPosition=bottom;verticalAlign=top;' +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(0, 0, 17, 17), 'shape=ellipse;fillColor=#808080;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var item3 = new mxCell('', new mxGeometry(w - 45, 30, 30, 20), 'shape=mxgraph.mockup.misc.mail2;fillColor=#FFE040;part=1;');
+				item3.vertex = true;
+				v.insert(item3);
+				item3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;');
+		    	edge3.geometry.relative = true;
+		    	edge3.edge = true;
+		    	item1.insertEdge(edge3, false);
+		    	item3.insertEdge(edge3, true);
+				edge3.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				edge3.geometry.points = [new mxPoint(x + 8.5, y + 40)];
+				select.push(graph.addCell(edge3, null, null, null, null));
+
+				var item4 = new mxCell('', new mxGeometry(w - 45, h - 20, 20, 20), 'part=1;');
+				item4.vertex = true;
+				v.insert(item4);
+				item4.value = convertText(p.message_0);
+				item4.style += getLabelStyle(p.message_0);
+				
+				item4.style += 
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p);
+
+				edge4 = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;');
+		    	edge4.geometry.relative = true;
+		    	edge4.edge = true;
+
+		    	item1.insertEdge(edge4, false);
+		    	item4.insertEdge(edge4, true);
+				edge4.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+
+				edge4.geometry.points = [new mxPoint(x + 8.5, y + h - 10)];
+				select.push(graph.addCell(edge4, null, null, null, null));
+
+				var messagesNum = p.HistoryMessages;
+				var oneH = (h - 75) / messagesNum;
+				var item2 = new Array();
+				var edge = new Array();
+				
+				for (var i = 0; i < messagesNum; i++)
+				{
+					var currY = oneH * (i + 1) + 30;
+						item2[i] = new mxCell('', new mxGeometry(w - 20, currY, 20, 20), 'part=1;');
+					item2[i].vertex = true;
+					item2[i].value = convertText(p['message_' + (i + 1)]);
+					item2.style += getLabelStyle(p['message_' + (i + 1)]);
+					v.insert(item2[i]);
+					
+					item2[i].style += 
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getOpacity(p, a) + 
+						getShadow(p) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+	
+					edge[i] = new mxCell('', new mxGeometry(0, 0, 0, 0), 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;endArrow=none;dashed=0;html=1;');
+			    	edge[i].geometry.relative = true;
+			    	edge[i].edge = true;
+			    	item3.insertEdge(edge[i], false);
+			    	item2[i].insertEdge(edge[i], true);
+					edge[i].style += 
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p);
+	
+					var wp = new Array();
+					wp.push(new mxPoint(x + w - 30, y + currY + 10));
+					
+					edge[i].geometry.points = wp;
+					select.push(graph.addCell(edge[i], null, null, null, null));
+				}
+	
 				break;
+				
 			case 'Equation' :
 				break;
 			case 'fpDoor' :
+				v.style += 'shape=mxgraph.floorplan.doorRight;' +
+					getStrokeColor(p, a) + 
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeWidth(p) +
+					getRotation(p, a, v)
+					getStrokeStyle(p);
+
+				if (p.DoorAngle < 0)
+				{
+					v.style += 'flipV=1;'
+				}
+				
 				break;
+				
 			case 'fpDoubleDoor' :
+				v.style += 'shape=mxgraph.floorplan.doorDouble;' +
+				getStrokeColor(p, a) + 
+				getOpacity(p, a) + 
+				getShadow(p) +
+				getStrokeWidth(p) +
+				getRotation(p, a, v) + 
+				getStrokeStyle(p);
+
+			if (p.DoorAngle > 0)
+			{
+				v.style += 'flipV=1;'
+			}
+			
 				break;
-			case 'fpStairsCurved' :
-				break;
-			case 'fpStairsCurvedWide' :
-				break;
+				
 			case 'fpRestroomLights' :
+				v.style += 'strokeColor=none;fillColor=none;' +
+					getRotation(p, a, v); 
+				
+				var item1 = new mxCell('', new mxGeometry(0, 0, w, h * 0.25), 'part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+
+				var item2 = new Array();
+				var lightOffset = w * 0.02;
+				var lightW = (w - lightOffset * 2) / p.LightCount;
+				var trueW = lightW * 0.8;
+				
+				for (var i = 0; i < p.LightCount; i++)
+				{
+					item2[i] = new mxCell('', new mxGeometry(lightOffset + lightW * i + (lightW - trueW) / 2, h * 0.25, trueW, h * 0.75), 'part=1;shape=ellipse;');
+					item2[i].vertex = true;
+					v.insert(item2[i]);
+					item2[i].style += 
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getOpacity(p, a) + 
+						getShadow(p) +
+						getStrokeStyle(p);
+				}
+				
 				break;
+				
 			case 'fpRestroomSinks' :
+				v.style += 'strokeColor=none;fillColor=none;' +
+				getRotation(p, a, v); 
+				
+				var item1 = new Array();
+				var sinkW = w / p.SinkCount;
+				
+				for (var i = 0; i < p.SinkCount; i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(sinkW * i, 0, sinkW, h), 'part=1;shape=mxgraph.floorplan.sink_2;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getOpacity(p, a) + 
+						getShadow(p) +
+						getStrokeStyle(p);
+				}
+				
+				break;
+				
+			case 'fpRestroomStalls' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var wallW = w * 0.1 / p.StallCount;
+				
+				var item1 = new mxCell('', new mxGeometry(0, 0, wallW, h), 'fillColor=#000000;part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				var stallW = (w - wallW) / p.StallCount;
+				
+				var wall = new Array();
+				var toilet = new Array();
+				var door = new Array();
+				var paper = new Array();
+				
+				var fc = getStrokeColor(p, a);
+				
+				if (fc == '')
+				{
+					fc = '#000000;'
+				}
+				else
+				{
+					fc = fc.replace('stokreColor=', '');
+				}
+				
+				var wallStyle = 'part=1;fillColor=' + fc + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				var otherStyle = 
+					getFillColor(p, a) + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p);
+				
+				for (var i = 0; i < p.StallCount; i++)
+				{
+					wall[i] = new mxCell('', new mxGeometry((i + 1) * stallW, 0, wallW, h), wallStyle);
+					wall[i].vertex = true;
+					v.insert(wall[i]);
+
+					door[i] = new mxCell('', new mxGeometry(wallW + i * stallW + (stallW - wallW) * 0.05, h - (stallW - wallW) * 0.92, (stallW - wallW) * 0.9, (stallW - wallW) * 0.92), 'shape=mxgraph.floorplan.doorRight;flipV=1;part=1;');
+					door[i].vertex = true;
+					v.insert(door[i]);
+					door[i].style += otherStyle;
+					
+					toilet[i] = new mxCell('', new mxGeometry(wallW + i * stallW + (stallW - wallW) * 0.2, 0, (stallW - wallW) * 0.6, (stallW - wallW) * 0.8), 'shape=mxgraph.floorplan.toilet;part=1;');
+					toilet[i].vertex = true;
+					v.insert(toilet[i]);
+					toilet[i].style += otherStyle;
+					
+					paper[i] = new mxCell('', new mxGeometry(wallW + i * stallW, h * 0.42, (stallW - wallW) * 0.15, (stallW - wallW) * 0.12), 'part=1;');
+					paper[i].vertex = true;
+					v.insert(paper[i]);
+					paper[i].style += otherStyle;
+				}
+				
 				break;
 			case 'PEOneToMany' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+		    	var edgeStyle = 'edgeStyle=none;endArrow=none;part=1;' +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+
+				var fc = getStrokeColor(p, a);
+				
+				if (fc == '')
+				{
+					fc = '#000000;'
+				}
+				else
+				{
+					fc = fc.replace('stokreColor=', '');
+				}
+				
+				var endStyle = 'shape=triangle;part=1;fillColor=' + fc +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+		    	
+			   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), edgeStyle);
+			   	edge1.geometry.relative = true;
+		    	edge1.edge = true;
+		    	
+		    	addFloatingEdge(0, h * 0.5, w * 0.65, h * 0.5, edge1, select, graph, cells, v, cell);
+		    	
+		    	var itemH = h / p.numLines;
+		    	var edge2 = new Array();
+		    	var endArrow = new Array();
+		    	
+		    	for (var i = 0; i < p.numLines; i++)
+		    	{
+				   	edge2[i] = new mxCell('', new mxGeometry(0, 0, 0, 0), edgeStyle);
+				   	edge2[i].geometry.relative = true;
+			    	edge2[i].edge = true;
+			    	
+			    	addFloatingEdge(w * 0.65, h * 0.5, w * 0.96, (i + 0.5) * itemH, edge2[i], select, graph, cells, v, cell);
+
+			    	endArrow[i] = new mxCell('', new mxGeometry(w * 0.95, (i + 0.2) * itemH, w * 0.05, itemH * 0.6), endStyle);
+			    	endArrow[i].vertex = true;
+					v.insert(endArrow[i]);
+		    	}
+				
 				break;
+				
 			case 'PEMultilines' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+		    	var edgeStyle = 'edgeStyle=none;endArrow=none;part=1;' +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+
+				var fc = getStrokeColor(p, a);
+				
+				if (fc == '')
+				{
+					fc = '#000000;'
+				}
+				else
+				{
+					fc = fc.replace('stokreColor=', '');
+				}
+				
+				var endStyle = 'shape=triangle;part=1;fillColor=' + fc +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+		    	
+		    	var itemH = h / p.numLines;
+		    	var edge2 = new Array();
+		    	var endArrow = new Array();
+		    	
+		    	for (var i = 0; i < p.numLines; i++)
+		    	{
+				   	edge2[i] = new mxCell('', new mxGeometry(0, 0, 0, 0), edgeStyle);
+				   	edge2[i].geometry.relative = true;
+			    	edge2[i].edge = true;
+			    	
+			    	addFloatingEdge(0, (i + 0.5) * itemH, w * 0.96, (i + 0.5) * itemH, edge2[i], select, graph, cells, v, cell);
+
+			    	endArrow[i] = new mxCell('', new mxGeometry(w * 0.95, (i + 0.2) * itemH, w * 0.05, itemH * 0.6), endStyle);
+			    	endArrow[i].vertex = true;
+					v.insert(endArrow[i]);
+		    	}
+				
 				break;
+				
 			case 'PEVesselBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) +
+					getFillColor(p,a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+					
+					v.value = convertText(p.Text);
+				
+				switch (p.vesselType)
+				{
+					case 1 :
+						v.style += 'shape=mxgraph.pid.vessels.pressurized_vessel;';
+						break;
+					case 2 :
+						v.style += 'shape=hexagon;size=0.10;direction=south;';
+						break;
+				}
+				
 				break;
-			case 'PEOpenTankBlock' :
-				break;
+				
 			case 'PEClosedTankBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;' +
+					getStrokeColor(p, a) +
+					getFillColor(p,a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+					
+					v.value = convertText(p.Text);
+
+				if (p.peakedRoof == 1 && p.stumpType == 0)
+				{
+					v.style += 'shape=mxgraph.pid.vessels.tank_(conical_roof);';
+				}
+				else if (p.stumpType == 1)
+				{
+					v.style += 'shape=mxgraph.pid.vessels.tank_(boot);';
+				}
+				
 				break;
+				
 			case 'PEColumnBlock' :
+				v.style += 'verticalLabelPosition=bottom;verticalAlign=top;';
+					getStrokeColor(p, a) +
+					getFillColor(p,a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p);
+					
+					v.value = convertText(p.Text);
+
+				if (p.columnType == 0)
+				{
+					v.style += 'shape=mxgraph.pid.vessels.pressurized_vessel;';
+				}
+				else
+				{
+					v.style += 'shape=mxgraph.pid.vessels.tank;';
+				}
+				
 				break;
+				
 			case 'PECompressorTurbineBlock' :
+				v.style += 'strokeColor=none;fillColor=none;' + 
+					getRotation(p, a, v) + 
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var st = 
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getShadow(p) +
+					getStrokeStyle(p);
+				
+				var item1 = new mxCell('', new mxGeometry(0, h * 0.2, w, h * 0.6), 'part=1;shape=trapezoid;direction=south;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += st; 
+
+				st += 'endSize=4;endArrow=block;endFill=1;';
+				
+				if (p.compressorType == 0)
+				{
+				   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), '');
+				   	edge1.geometry.relative = true;
+			    	edge1.edge = true;
+					edge1.style += st; 
+			    	
+			    	addFloatingEdge(0, 0, 0, h * 0.2, edge1, select, graph, cells, v, cell);
+					
+				   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), '');
+				   	edge2.geometry.relative = true;
+			    	edge2.edge = true;
+					edge2.style += st; 
+			    	
+			    	addFloatingEdge(w, h * 0.67, w, h, edge2, select, graph, cells, v, cell);
+				}
+				else
+				{
+					
+					item1.style += 'flipH=1;'
+				   	var edge1 = new mxCell('', new mxGeometry(0, 0, 0, 0), '');
+				   	edge1.geometry.relative = true;
+			    	edge1.edge = true;
+					edge1.style += st; 
+			    	
+			    	addFloatingEdge(0, 0, 0, h * 0.33, edge1, select, graph, cells, v, cell);
+					
+				   	var edge2 = new mxCell('', new mxGeometry(0, 0, 0, 0), '');
+				   	edge2.geometry.relative = true;
+			    	edge2.edge = true;
+					edge2.style += st; 
+			    	
+			    	addFloatingEdge(w, h * 0.8, w, h, edge2, select, graph, cells, v, cell);
+				}
+
+		    	if (p.centerLineType == 1)
+		    	{
+				   	var edge3 = new mxCell('', new mxGeometry(0, 0, 0, 0), '');
+				   	edge3.geometry.relative = true;
+			    	edge3.edge = true;
+					edge3.style += st; 
+			    	
+			    	addFloatingEdge(w * 0.2, h * 0.5, w * 0.8, h * 0.5, edge3, select, graph, cells, v, cell);
+		    	}
+		    	
 				break;
+				
+			case 'PEMotorDrivenTurbineBlock' :
+				var st = 
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getOpacity(p, a) + 
+					getStrokeStyle(p);
+				
+				v.style += 'shape=ellipse;' + 
+					getShadow(p) +
+					getRotation(p, a, v) +
+					getLabelStyle(p);
+				
+				v.value = convertText(p.Text);
+				
+				var item1 = new mxCell('', new mxGeometry(w * 0.2, h * 0.2, w * 0.6, h * 0.6), 'part=1;shape=trapezoid;direction=south;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += st; 
+			
+				break;
+				
 			case 'PEFanBlades2Block' :
 				break;
 			case 'PECentrifugalPumpBlock' :
 				break;
 			case 'PEIndicatorBlock' :
-				break;
 			case 'PEIndicator2Block' :
-				break;
 			case 'PESharedIndicatorBlock' :
-				break;
+			case 'PEComputerIndicatorBlock' :
 			case 'PESharedIndicator2Block' :
-				break;
 			case 'PEProgrammableIndicatorBlock' :
+				var st = getOpacity(p, a);
+				
+				v.style += st +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+				
+				switch(obj.Class)
+				{
+					case 'PEIndicatorBlock' :
+						v.style += 'shape=mxgraph.pid2inst.discInst;';
+						break;
+					case 'PEIndicator2Block' :
+						v.style += 'shape=mxgraph.pid2inst.indicator;indType=inst;';
+						break;
+					case 'PESharedIndicatorBlock' :
+						v.style += 'shape=mxgraph.pid2inst.sharedCont;';
+						break;
+					case 'PEComputerIndicatorBlock' :
+						v.style += 'shape=mxgraph.pid2inst.compFunc;';
+						break;
+					case 'PESharedIndicator2Block' :
+						v.style += 'shape=mxgraph.pid2inst.indicator;indType=ctrl;';
+						break;
+					case 'PEProgrammableIndicatorBlock' :
+						v.style += 'shape=mxgraph.pid2inst.progLogCont;';
+						break;
+				}
+				
+				if (obj.Class == 'PEIndicator2Block' || obj.Class == 'PESharedIndicator2Block')
+				{
+					//scale labels to width
+					var item1 = new mxCell('', new mxGeometry(0, 0, w, w * 0.5), 'part=1;strokeColor=none;fillColor=none;');
+					item1.vertex = true;
+					v.insert(item1);
+					item1.style += st +
+						getLabelStyle(p.TopText);
+					
+					item1.value = convertText(p.TopText);
+					
+					var item2 = new mxCell('', new mxGeometry(0, w * 0.5, w, w * 0.5), 'part=1;strokeColor=none;fillColor=none;');
+					item2.vertex = true;
+					v.insert(item2);
+					item2.style += st; 
+						getLabelStyle(p.BotText);
+					
+					item2.value = convertText(p.BotText);
+				}
+				else
+				{
+					//scale labels as usual
+					var item1 = new mxCell('', new mxGeometry(0, 0, w, h * 0.5), 'part=1;strokeColor=none;fillColor=none;');
+					item1.vertex = true;
+					v.insert(item1);
+					item1.style += st +
+						getLabelStyle(p.TopText);
+					
+					item1.value = convertText(p.TopText);
+					
+					var item2 = new mxCell('', new mxGeometry(0, h * 0.5, w, h * 0.5), 'part=1;strokeColor=none;fillColor=none;');
+					item2.vertex = true;
+					v.insert(item2);
+					item2.style += st; 
+						getLabelStyle(p.BotText);
+					
+					item2.value = convertText(p.BotText);
+				}
+				
+				switch(p.instrumentLocation)
+				{
+					case 0 :
+						v.style += 'mounting=field;';
+						break;
+					case 1 :
+						v.style += 'mounting=inaccessible;';
+						break;
+					case 2 :
+						v.style += 'mounting=room;';
+						break;
+					case 3 :
+						v.style += 'mounting=local;';
+						break;
+				}
+				
 				break;
+				
 			case 'PEGateValveBlock' :
-				break;
 			case 'PEGlobeValveBlock' :
-				break;
-			case 'PEControlValveBlock' :
-				break;
+			case 'PEAngleValveBlock' :
 			case 'PEAngleGlobeValveBlock' :
-				break;
 			case 'PEPoweredValveBlock' :
+				
+				var actuator = false;
+				
+				if (obj.Class == 'PEPoweredValveBlock')
+				{
+					if (p.poweredHandOperated != 1)
+					{
+						actuator = true;
+					}
+				}
+				else
+				{
+					if (p.handOperated != 1)
+					{
+						actuator = true;
+					}
+				}
+
+				if (actuator)
+				{
+					var p = getAction(obj).Properties;
+					var b = p.BoundingBox;
+
+					var oldH = b.h;
+					
+					if (obj.Class == 'PEAngleValveBlock' || obj.Class == 'PEAngleGlobeValveBlock')
+					{
+						b.h = b.h * 0.7;
+					}
+					else
+					{
+						b.h = b.h * 0.6;
+					}
+					
+					v = new mxCell('', new mxGeometry(Math.round(b.x * scale + dx), Math.round((b.y + oldH - b.h) * scale + dy),
+							Math.round(b.w * scale), Math.round(b.h * scale)), '');
+				    v.vertex = true;
+				    updateCell(v, obj);
+				}
+				
+				if (obj.Class == 'PEPoweredValveBlock')
+				{
+					v.style += 'shape=mxgraph.pid2valves.valve;verticalLabelPosition=bottom;verticalAlign=top;' + 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getRotation(p, a, v);
+					
+						if (p.poweredHandOperated == 1)
+						{
+							v.style += 'valveType=gate;actuator=powered;';
+							
+							var item1 = new mxCell('', new mxGeometry(w * 0.325, 0, w * 0.35, h * 0.35), 'part=1;strokeColor=none;fillColor=none;spacingTop=2;');
+							item1.vertex = true;
+							v.insert(item1);
+							item1.style += st +
+								getOpacity(p, a) +
+								getStrokeColor(p, a) + 
+								getFillColor(p, a) +
+								getStrokeWidth(p) +
+								getStrokeStyle(p) +
+								getShadow(p) +
+								'fontSize=6;' +
+								getFontColor(p.PoweredText) + 
+								getFontStyle(p.PoweredText) +
+								getTextAlignment(p.PoweredText) + 
+								getTextLeftSpacing(p.PoweredText) +
+								getTextRightSpacing(p.PoweredText) + 
+								getTextBottomSpacing(p.PoweredText) + 
+								getTextGlobalSpacing(p.PoweredText) +
+								getTextVerticalAlignment(p.PoweredText);
+							
+							item1.value = convertText(p.PoweredText);
+						}
+						else
+						{
+							v.style += 'valveType=gate;';
+						}
+				}
+				else
+				{
+					v.style += 'verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.pid2valves.valve;' +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getRotation(p, a, v) +
+						getFontSize(p) +
+						getFontColor(p) + 
+						getFontStyle(p) +
+						getTextAlignment(p); 
+					
+					v.value = convertText(p.Text);
+					
+					switch (obj.Class)
+					{
+						case 'PEGateValveBlock' :
+								v.style += 'valveType=gate;';
+							break;
+							
+						case 'PEGlobeValveBlock' :
+								v.style += 'valveType=globe;';
+							break;
+							
+						case 'PEAngleValveBlock' :
+								v.style += 'valveType=angle;';
+							break;
+							
+						case 'PEAngleGlobeValveBlock' :
+								v.style += 'valveType=angleGlobe;flipH=1;';
+							break;
+					}
+					
+					if (p.handOperated == 1)
+					{
+						v.style += 'actuator=man;';
+					}
+				}
+				
 				break;
-			case 'iOS7DeviceiPhone5Portrait' :
-				break;
-			case 'iOS7DeviceiPhone5Landscape' :
-				break;
-			case 'iOS7DeviceiPadPortrait' :
-				break;
-			case 'iOS7DeviceiPadLandscape' :
-				break;
-			case 'iOS7DeviceiPhone6Portrait' :
-				break;
-			case 'iOS7DeviceiPhone6Landscape' :
-				break;
-			case 'iOS7DeviceiPhone6PlusPortrait' :
-				break;
-			case 'iOS7DeviceiPhone6PlusLandscape' :
-				break;
-			case 'iOS7TabsiPhone' :
-				break;
-			case 'iOS7iPhoneActionSheet' :
-				break;
-			case 'iOS7TableView' :
-				break;
-			case 'iOS7NavBariPad' :
-				break;
-			case 'iOS7TabsiPad' :
-				break;
-			case 'iOS7iPadActionSheet' :
-				break;
-			case 'iOS7AlertDialog' :
-				break;
-			case 'iOS7ProgressBar' :
-				break;
-			case 'iOS7Slider' :
-				break;
-			case 'iOS7SegmentedControl' :
-				break;
-			case 'iOS7Toggle' :
-				break;
-			case 'iOS7PageControls' :
-				break;
-			case 'iOS7DatePicker' :
-				break;
-			case 'iOS7TimePicker' :
-				break;
-			case 'iOS7CountdownPicker' :
-				break;
+
 			case 'UI2BrowserBlock' :
+				v.style += 'shape=mxgraph.mockup.containers.browserWindow;mainText=;' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 130), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 110), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(-20, 110);
+					item3.vertex = true;
+					v.insert(item3);
+					
+					v.style += 'spacingRight=20;';
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item4.geometry.relative = true;
+				   	item4.geometry.offset = new mxPoint(0, -20);
+					item4.vertex = true;
+					v.insert(item4);
+				}
+				
+				break;
+			case 'UI2WindowBlock' :
+				v.style += 'shape=mxgraph.mockup.containers.window;mainText=;align=center;verticalAlign=top;spacing=5;' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v) +
+					getFontSize(p.Title) +
+					getFontColor(p.Title) + 
+					getFontStyle(p.Title);
+
+				v.value = convertText(p.Title);
+
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 50), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 30), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(-20, 30);
+					item3.vertex = true;
+					v.insert(item3);
+					
+					v.style += 'spacingRight=20;';
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item4.geometry.relative = true;
+				   	item4.geometry.offset = new mxPoint(0, -20);
+					item4.vertex = true;
+					v.insert(item4);
+				}
+				
 				break;
 			case 'UI2DialogBlock' :
+				v.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v) +
+					getLabelStyle(p.Text);
+
+				v.value = convertText(p.Text);
+
+				var item1 = new mxCell('', new mxGeometry(0, 0, w, 30), 'part=1;resizeHeight=0;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += st +
+					getLabelStyle(p.Title);
+				
+				item1.value = convertText(p.Title);
+
+				var item2 = new mxCell('', new mxGeometry(1, 0.5, 20, 20), 'part=1;shape=ellipse;strokeColor=#008cff;resizable=0;fillColor=none;html=1;');
+			   	item2.geometry.relative = true;
+			   	item2.geometry.offset = new mxPoint(-25, -10);
+				item2.vertex = true;
+				item1.insert(item2);
+
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 50), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(1, 0, 20, h - 30), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(-20, 30);
+					item3.vertex = true;
+					v.insert(item3);
+					
+					v.style += 'spacingRight=20;';
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item4 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item4.geometry.relative = true;
+				   	item4.geometry.offset = new mxPoint(0, -20);
+					item4.vertex = true;
+					v.insert(item4);
+				}
+				
 				break;
 			case 'UI2AccordionBlock' :
+				v.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+				
+				var item1 = new Array();
+				var itemH = 25;
+				
+				for (var i = 0; i <= (p.Panels - 1); i++)
+				{
+					if (i < (p.Selected - 1))
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, i * itemH, w, itemH), 'part=1;fillColor=#000000;fillOpacity=25;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getLabelStyle(p['Panel_' + (i + 1)]);
+						
+						item1[i].value = convertText(p['Panel_' + (i + 1)]);
+					}
+					else if (i == (p.Selected - 1))
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, i * itemH, w, itemH), 'part=1;fillColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getLabelStyle(p['Panel_' + (i + 1)]);
+						
+						item1[i].value = convertText(p['Panel_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, h - (p.Panels - p.Selected) * itemH + (i - p.Selected) * itemH, w, itemH), 'part=1;fillColor=#000000;fillOpacity=25;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getLabelStyle(p['Panel_' + (i + 1)]);
+						
+						item1[i].value = convertText(p['Panel_' + (i + 1)]);
+					}
+
+					if (!item1[i].style.includes(';align='))
+					{
+						item1[i].style += 'align=left;spacingLeft=5;';
+					}
+				}
+				
+				var fc2 = getStrokeColor(p, a);
+				fc2 = fc2.replace('strokeColor', 'fillColor2');
+				
+				if (fc2 == '')
+				{
+					fc2 = 'fillColor2=#000000;'
+				}
+				
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h - p.Selected * itemH -20 - (p.Panels - p.Selected) * itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h - p.Selected * itemH - (p.Panels - p.Selected) * itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item2.geometry.relative = true;
+				   	item2.geometry.offset = new mxPoint(-20, p.Selected * itemH);
+					item2.vertex = true;
+					v.insert(item2);
+					
+					v.style += 'spacingRight=20;';
+					
+					item2.style += fc2 +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(0, -20 - (p.Panels - p.Selected) * itemH);
+					item3.vertex = true;
+					v.insert(item3);
+
+					item3.style += fc2 + 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
+				if (p.vScroll == 1)
+				{
+					item4 = new mxCell('', new mxGeometry(0, p.Selected * itemH, w - 20, h - p.Selected * itemH -20 - (p.Panels - p.Selected) * itemH), 'part=1;fillColor=none;strokeColor=none;');
+				}
+				else
+				{
+					item4 = new mxCell('', new mxGeometry(0, p.Selected * itemH, w - 20, h - p.Selected * itemH - (p.Panels - p.Selected) * itemH), 'part=1;fillColor=none;strokeColor=none;');
+				}
+				item4.vertex = true;
+				v.insert(item4);
+				item4.style += 
+					getLabelStyle(p['Content_1']);
+				
+				if (!item4.style.includes(';align='))
+				{
+					item4.style += 'align=left;spacingLeft=5;';
+				}
+				
+				item4.value = convertText(p['Content_1']);
+				
 				break;
 			case 'UI2TabBarContainerBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemH = 25;
+				var itemS = 3; // tab spacing
+				var itemW = (w + itemS) / (p.Tabs + 1);
+				var startW = 10;
+					
+				var bg = new mxCell('', new mxGeometry(0, itemH, w, h - itemH), 'part=1;');
+				bg.vertex = true;
+				v.insert(bg);
+				bg.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+				
+				for (var i = 0; i <= (p.Tabs - 1); i++)
+				{
+					if (i == (p.Selected - 1))
+					{
+						item2[i] = new mxCell('', new mxGeometry(startW + i * itemW, 0, itemW - itemS, itemH), '');
+						item2[i].vertex = true;
+						v.insert(item2[i]);
+						item2[i].style += 
+							getOpacity(p, a) +
+							getStrokeColor(p, a) + 
+							getFillColor(p, a) +
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getShadow(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(startW + i * itemW, 0, itemW - itemS, itemH), 'strokeColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getOpacity(p, a) +
+							getFillColor(p, a) +
+							getShadow(p);
+						
+						item2[i] = new mxCell('', new mxGeometry(0, 0, itemW - itemS, itemH), 'fillColor=#000000;fillOpacity=25;');
+						item2[i].vertex = true;
+						item1[i].insert(item2[i]);
+						item2[i].style += 
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+
+					if (!item2[i].style.includes(';align='))
+					{
+						item2[i].style += 'align=left;spacingLeft=2;';
+					}
+				}
+				
+				var fc2 = getStrokeColor(p, a);
+				fc2 = fc2.replace('strokeColor', 'fillColor2');
+				
+				if (fc2 == '')
+				{
+					fc2 = 'fillColor2=#000000;'
+				}
+				
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h -20 - itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h - itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item2.geometry.relative = true;
+				   	item2.geometry.offset = new mxPoint(-20, itemH);
+					item2.vertex = true;
+					v.insert(item2);
+					
+					v.style += 'spacingRight=20;';
+					
+					item2.style += fc2 +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(0, -20);
+					item3.vertex = true;
+					v.insert(item3);
+
+					item3.style += fc2 + 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
 				break;
+				
 			case 'UI2TabBar2ContainerBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemH = 25; // tab height
+				var itemS = 3; // tab spacing
+				var itemW = (w + itemS) / p.Tabs; //tab width (including spacing)
+					
+				var bg = new mxCell('', new mxGeometry(0, itemH, w, h - itemH), 'part=1;');
+				bg.vertex = true;
+				v.insert(bg);
+				bg.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+				
+				for (var i = 0; i <= (p.Tabs - 1); i++)
+				{
+					if (i == (p.Selected - 1))
+					{
+						item2[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW - itemS, itemH), '');
+						item2[i].vertex = true;
+						v.insert(item2[i]);
+						item2[i].style += 
+							getOpacity(p, a) +
+							getStrokeColor(p, a) + 
+							getFillColor(p, a) +
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getShadow(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW - itemS, itemH), 'strokeColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getOpacity(p, a) +
+							getFillColor(p, a) +
+							getShadow(p);
+						
+						item2[i] = new mxCell('', new mxGeometry(0, 0, itemW - itemS, itemH), 'fillColor=#000000;fillOpacity=25;');
+						item2[i].vertex = true;
+						item1[i].insert(item2[i]);
+						item2[i].style += 
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+
+					if (!item2[i].style.includes(';align='))
+					{
+						item2[i].style += 'align=left;spacingLeft=2;';
+					}
+				}
+				
+				var fc2 = getStrokeColor(p, a);
+				fc2 = fc2.replace('strokeColor', 'fillColor2');
+				
+				if (fc2 == '')
+				{
+					fc2 = 'fillColor2=#000000;'
+				}
+				
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h -20 - itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h - itemH), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item2.geometry.relative = true;
+				   	item2.geometry.offset = new mxPoint(-20, itemH);
+					item2.vertex = true;
+					v.insert(item2);
+					
+					v.style += 'spacingRight=20;';
+					
+					item2.style += fc2 +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w - 20, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(0, 1, w, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(0, -20);
+					item3.vertex = true;
+					v.insert(item3);
+
+					item3.style += fc2 + 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
 				break;
+				
 			case 'UI2VTabBarContainerBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemS = 3; // tab spacing
+				var itemH = 25 + itemS; // tab height (including spacing)
+				var itemW = 80; //tab width
+				var startH = 10;
+					
+				var bg = new mxCell('', new mxGeometry(itemW, 0, w - itemW, h), 'part=1;');
+				bg.vertex = true;
+				v.insert(bg);
+				bg.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v);
+				
+				for (var i = 0; i <= (p.Tabs - 1); i++)
+				{
+					if (i == (p.Selected - 1))
+					{
+						item2[i] = new mxCell('', new mxGeometry(0, startH + i * itemH, itemW, itemH - itemS), '');
+						item2[i].vertex = true;
+						v.insert(item2[i]);
+						item2[i].style += 
+							getOpacity(p, a) +
+							getStrokeColor(p, a) + 
+							getFillColor(p, a) +
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getShadow(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, startH + i * itemH, itemW, itemH - itemS), 'strokeColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getOpacity(p, a) +
+							getFillColor(p, a) +
+							getShadow(p);
+						
+						item2[i] = new mxCell('', new mxGeometry(0, 0, itemW, itemH - itemS), 'fillColor=#000000;fillOpacity=25;');
+						item2[i].vertex = true;
+						item1[i].insert(item2[i]);
+						item2[i].style += 
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getLabelStyle(p['Tab_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Tab_' + (i + 1)]);
+					}
+
+					if (!item2[i].style.includes(';align='))
+					{
+						item2[i].style += 'align=left;spacingLeft=2;';
+					}
+				}
+				
+				var fc2 = getStrokeColor(p, a);
+				fc2 = fc2.replace('strokeColor', 'fillColor2');
+				
+				if (fc2 == '')
+				{
+					fc2 = 'fillColor2=#000000;'
+				}
+				
+				if (p.vScroll == 1)
+				{
+					if (p.hScroll == 1)
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h -20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					else
+					{
+						var item2 = new mxCell('', new mxGeometry(1, 0, 20, h), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=95;direction=north;resizeHeight=1;');
+					}
+					
+				   	item2.geometry.relative = true;
+				   	item2.geometry.offset = new mxPoint(-20, 0);
+					item2.vertex = true;
+					v.insert(item2);
+					
+					v.style += 'spacingRight=20;';
+					
+					item2.style += fc2 +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
+				if (p.hScroll == 1)
+				{
+					if (p.vScroll == 1)
+					{
+						var item3 = new mxCell('', new mxGeometry(itemW, 1, w - 20 - itemW, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					else
+					{
+						var item3 = new mxCell('', new mxGeometry(itemW, 1, w - itemW, 20), 'part=1;shape=mxgraph.mockup.navigation.scrollBar;barPos=5;resizeWidth=1;');
+					}
+					
+				   	item3.geometry.relative = true;
+				   	item3.geometry.offset = new mxPoint(0, -20);
+					item3.vertex = true;
+					v.insert(item3);
+
+					item3.style += fc2 + 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p);
+				}
+				
 				break;
 			case 'UI2CheckBoxBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var itemH = h / p.Options;
+				var item1 = new Array(); //checkbox
+				var item2 = new Array(); //checkmark
+				
+				for (var i = 0; i < p.Options; i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(0, i * itemH + itemH * 0.5 - 5, 10, 10), 'labelPosition=right;part=1;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=3;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getLabelStyle(p['Option_' + (i + 1)]);
+					
+					if (p.Selected[i + 1] != null)
+					{
+						if (p.Selected[i + 1] == 1)
+						{
+							var fc = getStrokeColor(p, a);
+							fc = fc.replace('strokeColor', 'fillColor');
+							
+							if (fc == '')
+							{
+								fc = 'fillColor=#000000;'
+							}
+							
+							item2[i] = new mxCell('', new mxGeometry(2, 2, 6, 6), 'shape=mxgraph.mscae.general.checkmark;part=1;');
+							item2[i].vertex = true;
+							item1[i].insert(item2[i]);
+							item2[i].style += fc + 
+								getOpacity(p, a) +
+								getStrokeColor(p, a) + 
+								getStrokeWidth(p) +
+								getStrokeStyle(p);
+						}
+					}
+					
+					item1[i].value = convertText(p['Option_' + (i + 1)]);
+				}
+				
 				break;
 			case 'UI2HorizontalCheckBoxBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var itemW = w / p.Options;
+				var item1 = new Array(); //checkbox
+				var item2 = new Array(); //checkmark
+				
+				for (var i = 0; i < p.Options; i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(i * itemW, h * 0.5 - 5, 10, 10), 'labelPosition=right;part=1;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=3;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getLabelStyle(p['Option_' + (i + 1)]);
+					
+					if (p.Selected[i + 1] != null)
+					{
+						if (p.Selected[i + 1] == 1)
+						{
+							var fc = getStrokeColor(p, a);
+							fc = fc.replace('strokeColor', 'fillColor');
+							
+							if (fc == '')
+							{
+								fc = 'fillColor=#000000;'
+							}
+							
+							item2[i] = new mxCell('', new mxGeometry(2, 2, 6, 6), 'shape=mxgraph.mscae.general.checkmark;part=1;');
+							item2[i].vertex = true;
+							item1[i].insert(item2[i]);
+							item2[i].style += fc + 
+								getOpacity(p, a) +
+								getStrokeColor(p, a) + 
+								getStrokeWidth(p) +
+								getStrokeStyle(p);
+						}
+					}
+					
+					item1[i].value = convertText(p['Option_' + (i + 1)]);
+				}
+				
 				break;
 			case 'UI2RadioBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var itemH = h / p.Options;
+				var item1 = new Array(); //checkbox
+				var item2 = new Array(); //checkmark
+				
+				for (var i = 0; i < p.Options; i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(0, i * itemH + itemH * 0.5 - 5, 10, 10), 'shape=ellipse;labelPosition=right;part=1;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=3;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getLabelStyle(p['Option_' + (i + 1)]);
+					
+					if (p.Selected != null)
+					{
+						if (p.Selected == (i + 1))
+						{
+							var fc = getStrokeColor(p, a);
+							fc = fc.replace('strokeColor', 'fillColor');
+							
+							if (fc == '')
+							{
+								fc = 'fillColor=#000000;'
+							}
+							
+							item2[i] = new mxCell('', new mxGeometry(2.5, 2.5, 5, 5), 'shape=ellipse;');
+							item2[i].vertex = true;
+							item1[i].insert(item2[i]);
+							item2[i].style += fc + 
+								getOpacity(p, a) +
+								getStrokeColor(p, a) + 
+								getStrokeWidth(p) +
+								getStrokeStyle(p);
+						}
+					}
+					
+					item1[i].value = convertText(p['Option_' + (i + 1)]);
+				}
+				
 				break;
 			case 'UI2HorizontalRadioBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var itemW = w / p.Options;
+				var item1 = new Array(); //checkbox
+				var item2 = new Array(); //checkmark
+				
+				for (var i = 0; i < p.Options; i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(i * itemW, h * 0.5 - 5, 10, 10), 'shape=ellipse;labelPosition=right;part=1;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=3;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getShadow(p) +
+						getLabelStyle(p['Option_' + (i + 1)]);
+					
+					if (p.Selected != null)
+					{
+						if (p.Selected == (i + 1))
+						{
+							var fc = getStrokeColor(p, a);
+							fc = fc.replace('strokeColor', 'fillColor');
+							
+							if (fc == '')
+							{
+								fc = 'fillColor=#000000;'
+							}
+							
+							item2[i] = new mxCell('', new mxGeometry(2, 2, 6, 6), 'shape=ellipse;part=1;');
+							item2[i].vertex = true;
+							item1[i].insert(item2[i]);
+							item2[i].style += fc + 
+								getOpacity(p, a) +
+								getStrokeColor(p, a) + 
+								getStrokeWidth(p) +
+								getStrokeStyle(p);
+						}
+					}
+					
+					item1[i].value = convertText(p['Option_' + (i + 1)]);
+				}
+				
 				break;
+				
+			case 'UI2HSliderBlock' :
+			case 'UI2VSliderBlock' :
+				v.style += 'shape=mxgraph.mockup.forms.horSlider;sliderStyle=basic;handleStyle=handle;' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+
+				if (obj.Class == 'UI2VSliderBlock')
+				{
+					v.style += 'direction=south;';
+				}
+				
+				v.style += 'sliderPos=' + (p.ScrollVal * 100) + ';';
+				
+				break;
+				
+			case 'UI2DatePickerBlock' :
+				v.style += 'strokeColor=none;fillColor=none;';
+				
+				var item1 = new mxCell('', new mxGeometry(0, 0, w * 0.6, h), 'part=1;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style +=  
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getLabelStyle(p.Date);
+				
+				item1.value = convertText(p.Date);
+
+				var fc = getStrokeColor(p, a);
+				fc = fc.replace('strokeColor', 'fillColor');
+				
+				if (fc == '')
+				{
+					fc = 'fillColor=#000000;'
+				}
+				
+				var item2 = new mxCell('', new mxGeometry(w * 0.75, 0, w * 0.25, h), 'part=1;shape=mxgraph.gmdl.calendar;');
+				item2.vertex = true;
+				v.insert(item2);
+				item2.style += fc +  
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+
+				break;
+
+			case 'UI2SearchBlock' :
+				v.style += 'shape=mxgraph.mockup.forms.searchBox;mainText=;flipH=1;align=left;spacingLeft=26;' + 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getFontSize(p.Search) +
+					getFontColor(p.Search) + 
+					getFontStyle(p.Search);
+				
+				v.value = convertText(p.Search);
+				
+				break;
+
+			case 'UI2NumericStepperBlock' :
+				var fc = getStrokeColor(p, a);
+				fc = fc.replace('strokeColor', 'fillColor');
+				
+				if (fc == '')
+				{
+					fc = 'fillColor=#000000;'
+				}
+				
+				v.style += 'shape=mxgraph.mockup.forms.spinner;spinLayout=right;spinStyle=normal;adjStyle=triangle;mainText=;align=left;spacingLeft=8;' + fc + 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getFontSize(p.Number) +
+					getFontColor(p.Number) + 
+					getFontStyle(p.Number);
+				
+				v.value = convertText(p.Number);
+				
+				break;
+				
 			case 'UI2TableBlock' :
 				break;
 			case 'UI2ButtonBarBlock' :
+				v.style +=
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemW = w / p.Buttons;
+					
+				for (var i = 0; i <= (p.Buttons - 1); i++)
+				{
+					if (i == (p.Selected - 1))
+					{
+						item2[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW, h), '');
+						item2[i].vertex = true;
+						v.insert(item2[i]);
+						item2[i].style += 
+							getOpacity(p, a) +
+							getStrokeColor(p, a) + 
+							getFillColor(p, a) +
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getShadow(p) +
+							getLabelStyle(p['Button_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Button_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW, h), 'strokeColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getOpacity(p, a) +
+							getFillColor(p, a) +
+							getShadow(p);
+						
+						item2[i] = new mxCell('', new mxGeometry(0, 0, itemW, h), 'fillColor=#000000;fillOpacity=25;');
+						item2[i].vertex = true;
+						item1[i].insert(item2[i]);
+						item2[i].style += 
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getLabelStyle(p['Button_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Button_' + (i + 1)]);
+					}
+				}
+				
 				break;
+				
 			case 'UI2VerticalButtonBarBlock' :
+				v.style +=
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+	
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemH = h / p.Buttons;
+					
+				for (var i = 0; i <= (p.Buttons - 1); i++)
+				{
+					if (i == (p.Selected - 1))
+					{
+						item2[i] = new mxCell('', new mxGeometry(0, i * itemH, w, itemH), '');
+						item2[i].vertex = true;
+						v.insert(item2[i]);
+						item2[i].style += 
+							getOpacity(p, a) +
+							getStrokeColor(p, a) + 
+							getFillColor(p, a) +
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getShadow(p) +
+							getLabelStyle(p['Button_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Button_' + (i + 1)]);
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, i * itemH, w, itemH), 'strokeColor=none;');
+						item1[i].vertex = true;
+						v.insert(item1[i]);
+						item1[i].style += 
+							getOpacity(p, a) +
+							getFillColor(p, a) +
+							getShadow(p);
+						
+						item2[i] = new mxCell('', new mxGeometry(0, 0, w, itemH), 'fillColor=#000000;fillOpacity=25;');
+						item2[i].vertex = true;
+						item1[i].insert(item2[i]);
+						item2[i].style += 
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p) +
+							getLabelStyle(p['Button_' + (i + 1)]);
+						
+						item2[i].value = convertText(p['Button_' + (i + 1)]);
+					}
+				}
+				
 				break;
 			case 'UI2LinkBarBlock' :
+				v.style += 'strokeColor=none;fillColor=none;'
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemW = w / p.Links;
+					
+				for (var i = 0; i < (p.Links); i++)
+				{
+					if (i != 0)
+					{
+						item2[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW, h), 'shape=partialRectangle;top=0;bottom=0;right=0;fillColor=none;');
+						item2[i].style += 
+							getOpacity(p, a) +
+							getShadow(p) +
+							getStrokeColor(p, a) + 
+							getStrokeWidth(p) +
+							getStrokeStyle(p);
+					}
+					else
+					{
+						item2[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW, h), 'fillColor=none;strokeColor=none;');
+					}
+					
+					item2[i].vertex = true;
+					v.insert(item2[i]);
+					item2[i].style += 
+						getLabelStyle(p['Link_' + (i + 1)]);
+					
+					item2[i].value = convertText(p['Link_' + (i + 1)]);
+				}
+				
 				break;
+				
 			case 'UI2BreadCrumbsBlock' :
+				v.style += 'strokeColor=none;fillColor=none;'
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+
+				var item1 = new Array();
+				var item2 = new Array();
+				var itemW = w / p.Links;
+					
+				for (var i = 0; i < (p.Links); i++)
+				{
+					item1[i] = new mxCell('', new mxGeometry(i * itemW, 0, itemW, h), 'fillColor=none;strokeColor=none;');
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getLabelStyle(p['Link_' + (i + 1)]);
+					
+					item1[i].value = convertText(p['Link_' + (i + 1)]);
+				}
+				
+				for (var i = 1; i < (p.Links); i++)
+				{
+					item2[i] = new mxCell('', new mxGeometry(i / p.Links, 0.5, 6, 10), 'shape=mxgraph.ios7.misc.right;');
+					item2[i].geometry.relative = true;
+					item2[i].geometry.offset = new mxPoint(-3, -5);
+					item2[i].vertex = true;
+					v.insert(item2[i]);
+				}
+				
 				break;
 			case 'UI2MenuBarBlock' :
+				v.style += 'strokeColor=none;' +
+					getOpacity(p, a) +
+					getFillColor(p, a) +
+					getShadow(p);
+
+				var item1 = new Array();
+				var itemW = w / (p.Buttons + 1);
+					
+				for (var i = 0; i <= (p.Buttons - 1); i++)
+				{
+					if (i != (p.Selected - 1))
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, 0, itemW, h), 'strokeColor=none;fillColor=none;resizeHeight=1;');
+					}
+					else
+					{
+						item1[i] = new mxCell('', new mxGeometry(0, 0, itemW, h), 'fillColor=#000000;fillOpacity=25;strokeColor=none;resizeHeight=1;');
+					}
+					
+					item1[i].geometry.relative = true;
+					item1[i].geometry.offset = new mxPoint(i * itemW, 0);
+					item1[i].vertex = true;
+					v.insert(item1[i]);
+					item1[i].style += 
+						getLabelStyle(p['MenuItem_' + (i + 1)]);
+					
+					item1[i].value = convertText(p['MenuItem_' + (i + 1)]);
+				}
+				
 				break;
+			case 'UI2AtoZBlock' :
+				v.style += 'fillColor=none;strokeColor=none;' + 
+					getLabelStyle(p['Text_0']);
+				
+				v.value = '0-9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
+				
+				break;
+
+			case 'UI2PaginationBlock' :
+				v.style += 'fillColor=none;strokeColor=none;' + 
+					getLabelStyle(p.Text_prev);
+			
+				v.value = convertText(p.Text_prev) + ' ';
+				
+				for (var i = 0; i < p.Links; i++)
+				{
+					v.value += convertText(p['Link_' + (i + 1)]) + ' ';
+				}
+				
+				v.value += convertText(p.Text_next);
+				
+				break;
+				
 			case 'UI2ContextMenuBlock' :
+				v.style +=
+					getOpacity(p, a) +
+					getFillColor(p, a) + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p);
+				
+				var item = new Array();
+				var icon = new Array();
+				var shortcut = new Array();
+				var itemH = h / p.Lines;
+				var st = null; 
+				
+				for (var i = 0; i < p.Lines; i++)
+				{
+					//add label
+					if (p['Item_' + (i + 1)] != null)
+					{
+						if (st == null)
+						{
+							st = '' + 
+								getFontSize(p['Item_' + (i + 1)]) +
+								getFontColor(p['Item_' + (i + 1)]) + 
+								getFontStyle(p['Item_' + (i + 1)]);
+						}
+						
+						item[i] = new mxCell('', new mxGeometry(0, i * h / p.Lines, w, itemH), 'strokeColor=none;fillColor=none;spacingLeft=20;align=left;html=1;');
+						item[i].vertex = true;
+						v.insert(item[i]);
+						item[i].style += st; 
+						
+						item[i].value = convertText(p['Item_' + (i + 1)]);
+					}
+					
+					//add icon
+					if (p.Icons[(i + 1)] != null && item[i] != null)
+					{
+						if (p.Icons[(i + 1)] == 'dot')
+						{
+							icon[i] = new mxCell('', new mxGeometry(0, 0.5, 8, 8), 'shape=ellipse;strokeColor=none;');
+							icon[i].geometry.offset = new mxPoint(6, -4);
+						}
+						else if (p.Icons[(i + 1)] == 'check')
+						{
+							icon[i] = new mxCell('', new mxGeometry(0, 0.5, 7, 8), 'shape=mxgraph.mscae.general.checkmark;strokeColor=none;');
+							icon[i].geometry.offset = new mxPoint(6.5, -4);
+						}
+
+						if (icon[i] != null)
+						{
+							icon[i].geometry.relative = true;
+							icon[i].vertex = true;
+							item[i].insert(icon[i]);
+							
+							var fc = getStrokeColor(p, a);
+							fc = fc.replace('strokeColor', 'fillColor');
+							
+							if (fc == '')
+							{
+								fc = 'fillColor=#000000;'
+							}
+							
+							icon[i].style += fc;
+						}
+					}
+					
+					//add shortcut
+					if (p['Shortcut_' + (i + 1)] != null)
+					{
+						if (st == null)
+						{
+							st = '' + 
+								getFontSize(p['Shortcut_' + (i + 1)]) +
+								getFontColor(p['Shortcut_' + (i + 1)]) + 
+								getFontStyle(p['Shortcut_' + (i + 1)]);
+						}
+						
+						shortcut[i] = new mxCell('', new mxGeometry(w * 0.6, i * h / p.Lines, w * 0.4, itemH), 'strokeColor=none;fillColor=none;spacingRight=3;align=right;html=1;');
+						shortcut[i].vertex = true;
+						v.insert(shortcut[i]);
+						shortcut[i].style += st; 
+						
+						shortcut[i].value = convertText(p['Shortcut_' + (i + 1)]);
+					}
+					
+					//add line
+					if (p.Dividers[(i + 1)] != null)
+					{
+						item[i] = new mxCell('', new mxGeometry(w * 0.05, i * h / p.Lines, w * 0.9, itemH), 'shape=line;strokeWidth=0.25;');
+						item[i].vertex = true;
+						v.insert(item[i]);
+						item[i].style += getStrokeColor(p, a); 
+					}
+				}
+				
 				break;
 			case 'UI2TreePaneBlock' :
 				break;
-			case 'UI2BraceNoteBlock' :
+				
+			case 'UI2ProgressBarBlock' :
+				v.style += 'shape=mxgraph.mockup.misc.progressBar;fillColor2=#888888;barPos=' + (p.ScrollVal * 100) + ';';
+				
 				break;
-			case 'UI2TooltipBlock' :
+				
+			case 'UI2TooltipSquareBlock' :
+				v.style += 'html=1;shape=callout;flipV=1;base=13;size=7;position=0.5;position2=0.66;rounded=1;arcSize=' + (p.RoundCorners) + ';' +
+					getOpacity(p, a) +
+					getFillColor(p, a) + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getLabelStyle(p.Tip);
+				
+				v.value = convertText(p.Tip);
+				
 				break;
+			case 'UI2CalloutBlock' :
+				v.style += 'shape=ellipse;' +
+					getOpacity(p, a) +
+					getFillColor(p, a) + 
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getLabelStyle(p.Txt);
+				
+				v.value = convertText(p.Txt);
+				
+				
+				break;
+				
 			case 'UI2AlertBlock' :
+				v.style += 
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getShadow(p) +
+					getRotation(p, a, v) +
+					getLabelStyle(p.Txt);
+
+				v.value = convertText(p.Txt);
+
+				var item1 = new mxCell('', new mxGeometry(0, 0, w, 30), 'part=1;resizeHeight=0;');
+				item1.vertex = true;
+				v.insert(item1);
+				item1.style += st +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getFillColor(p, a) +
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p.Title);
+				
+				item1.value = convertText(p.Title);
+
+				var item2 = new mxCell('', new mxGeometry(1, 0.5, 20, 20), 'part=1;shape=ellipse;strokeColor=#008cff;resizable=0;fillColor=none;html=1;');
+			   	item2.geometry.relative = true;
+			   	item2.geometry.offset = new mxPoint(-25, -10);
+				item2.vertex = true;
+				item1.insert(item2);
+
+				var bw = 45;
+				var bh = 20;
+				var bs = 10;
+				var totalW = bw * p.Buttons + (bs * p.Buttons - 1)
+				
+				item3 = new Array();
+				
+				for (var i = 0; i < p.Buttons; i++)
+				{
+					item3[i] = new mxCell('', new mxGeometry(0.5, 1, bw, bh), 'part=1;html=1;');
+				   	item3[i].geometry.relative = true;
+				   	item3[i].geometry.offset = new mxPoint(-totalW * 0.5 + i * (bw + bs), -40);
+					item3[i].vertex = true;
+					v.insert(item3[i]);
+					item3[i].style +=
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getLabelStyle(p['Button_' + (i + 1)]);
+					
+					item3[i].value = convertText(p['Button_' + (i + 1)]);
+				}
+				
 				break;
-			case 'Image_ipad_alert_dialog' :
+				
+			case 'UMLClassBlock' :
+				if (p.Simple == 0)
+				{
+					var st = getFillColor(p, a);
+					var th = p.TitleHeight * scale;
+					st = st.replace('fillColor', 'swimlaneFillColor');
+					
+					if (st == '')
+					{
+						st = 'swimlaneFillColor=#ffffff;'
+					}
+					
+					v.style += 'swimlane;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;' + st +
+						'startSize=' + th + ';' +
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getLabelStyle(p.Title);
+						
+					v.value = convertText(p.Title);
+					
+					var item = new Array();
+					var divider = new Array();
+					var currH = th / h;
+					
+					for (var i = 0; i <= p.Attributes; i++)
+					{
+						if (i > 0)
+						{
+							divider[i] = new mxCell('', new mxGeometry(0, 0, 40, 8), 'line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;');
+							divider[i].vertex = true;
+							v.insert(divider[i]);
+						}
+						
+						var itemH = 0;
+						
+						if (i < p.Attributes)
+						{
+							itemH = p['Text' + (i + 1) + 'Percent'];
+							currH += itemH;
+						}
+						else
+						{
+							itemH = 1 - currH;
+						}
+						
+						item[i] = new mxCell('', new mxGeometry(0, 0, w, (h - th) * itemH), 'part=1;resizeHeight=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+						item[i].vertex = true;
+						v.insert(item[i]);
+						item[i].style += st +
+							getOpacity(p, a) +
+							getFontSize(p['Text' + (i + 1)]) +
+							getFontColor(p['Text' + (i + 1)]) + 
+							getFontStyle(p['Text' + (i + 1)]);
+						
+						item[i].value = convertText(p['Text' + (i + 1)]);
+					}
+				}
+				else
+				{
+					v.style += 
+						getOpacity(p, a) +
+						getStrokeColor(p, a) + 
+						getFillColor(p, a) +
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getLabelStyle(p.Title);
+						
+					v.value = convertText(p.Title);
+				}
+
 				break;
-			case 'Image_ipad_dialog' :
+			 	
+			case 'ERDEntityBlock' :
+				var st = getFillColor(p, a);
+				var th = p.Name_h * scale;
+				st = st.replace('fillColor', 'swimlaneFillColor');
+				
+				if (st == '')
+				{
+					st = 'swimlaneFillColor=#ffffff;'
+				}
+				
+				v.style += 'swimlane;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;' + st +
+					'startSize=' + th + ';' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p.Name);
+
+				if (p.ShadedHeader)
+				{
+					v.style += 'fillColor=#e0e0e0;';
+				}
+				else
+				{
+					v.style += getFillColor(p, a);
+				}
+				
+				v.value = convertText(p.Name);
+				
+				var item = new Array();
+				var currH = th / h;
+				
+				for (var i = 0; i < p.Fields; i++)
+				{
+					var itemH = 0;
+					
+					item[i] = new mxCell('', new mxGeometry(0, 0, w, p['Field' + (i + 1) + '_h'] * scale), 'part=1;resizeHeight=0;strokeColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					item[i].vertex = true;
+					v.insert(item[i]);
+					item[i].style += st +
+						getFontSize(p['Field' + (i + 1)]) +
+						getFontColor(p['Field' + (i + 1)]) + 
+						getFontStyle(p['Field' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						item[i].style += 'fillColor=#000000;opacity=5;';
+					}
+					else
+					{
+						item[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					item[i].value = convertText(p['Field' + (i + 1)]);
+				}
+				
 				break;
-			case 'Image_ipad_table' :
+				
+			case 'ERDEntityBlock2' :
+				var st = getFillColor(p, a);
+				var th = p.Name_h * scale;
+				st = st.replace('fillColor', 'swimlaneFillColor');
+				
+				if (st == '')
+				{
+					st = 'swimlaneFillColor=#ffffff;'
+				}
+				
+				v.style += 'swimlane;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;' + st +
+					'startSize=' + th + ';' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p.Name);
+
+				if (p.ShadedHeader)
+				{
+					v.style += 'fillColor=#e0e0e0;';
+				}
+				else
+				{
+					v.style += getFillColor(p, a);
+				}
+				
+				v.value = convertText(p.Name);
+				
+				var item = new Array();
+				var key = new Array();
+				var currH = th;
+				var keyW = 30;
+				
+				if (p.Column1 != null)
+				{
+					keyW = p.Column1 * scale;
+				}
+				
+				for (var i = 0; i < p.Fields; i++)
+				{
+					var itemH = 0;
+
+					key[i] = new mxCell('', new mxGeometry(0, currH, keyW, p['Key' + (i + 1) + '_h'] * scale), 'strokeColor=none;part=1;resizeHeight=0;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					key[i].vertex = true;
+					v.insert(key[i]);
+					key[i].style += st +
+						getFontSize(p['Key' + (i + 1)]) +
+						getFontColor(p['Key' + (i + 1)]) + 
+						getFontStyle(p['Key' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						key[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						key[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					key[i].value = convertText(p['Key' + (i + 1)]);
+					
+					item[i] = new mxCell('', new mxGeometry(keyW, currH, w - keyW, p['Field' + (i + 1) + '_h'] * scale), 'shape=partialRectangle;top=0;right=0;bottom=0;part=1;resizeHeight=0;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					item[i].vertex = true;
+					v.insert(item[i]);
+					item[i].style += st +
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getFontSize(p['Field' + (i + 1)]) +
+						getFontColor(p['Field' + (i + 1)]) + 
+						getFontStyle(p['Field' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						item[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						item[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					item[i].value = convertText(p['Field' + (i + 1)]);
+					
+					currH += p['Key' + (i + 1) + '_h'] * scale;
+				}
+				
 				break;
-			case 'Image_ipad_vtab' :
+				
+			case 'ERDEntityBlock3' :
+				var st = getFillColor(p, a);
+				var th = p.Name_h * scale;
+				st = st.replace('fillColor', 'swimlaneFillColor');
+				
+				if (st == '')
+				{
+					st = 'swimlaneFillColor=#ffffff;'
+				}
+				
+				v.style += 'swimlane;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;' + st +
+					'startSize=' + th + ';' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p.Name);
+
+				if (p.ShadedHeader)
+				{
+					v.style += 'fillColor=#e0e0e0;';
+				}
+				else
+				{
+					v.style += getFillColor(p, a);
+				}
+				
+				v.value = convertText(p.Name);
+				
+				var item = new Array();
+				var key = new Array();
+				var currH = th;
+				var keyW = 30;
+				
+				if (p.Column1 != null)
+				{
+					keyW = p.Column1 * scale;
+				}
+				
+				for (var i = 0; i < p.Fields; i++)
+				{
+					var itemH = 0;
+
+					key[i] = new mxCell('', new mxGeometry(0, currH, keyW, p['Field' + (i + 1) + '_h'] * scale), 'strokeColor=none;part=1;resizeHeight=0;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					key[i].vertex = true;
+					v.insert(key[i]);
+					key[i].style += st +
+						getFontSize(p['Field' + (i + 1)]) +
+						getFontColor(p['Field' + (i + 1)]) + 
+						getFontStyle(p['Field' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						key[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						key[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					key[i].value = convertText(p['Field' + (i + 1)]);
+					
+					item[i] = new mxCell('', new mxGeometry(keyW, currH, w - keyW, p['Type' + (i + 1) + '_h'] * scale), 'shape=partialRectangle;top=0;right=0;bottom=0;part=1;resizeHeight=0;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					item[i].vertex = true;
+					v.insert(item[i]);
+					item[i].style += st +
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getFontSize(p['Type' + (i + 1)]) +
+						getFontColor(p['Type' + (i + 1)]) + 
+						getFontStyle(p['Type' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						item[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						item[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					item[i].value = convertText(p['Type' + (i + 1)]);
+					
+					currH += p['Field' + (i + 1) + '_h'] * scale;
+				}
+				
 				break;
-			case 'Image_ipad_large_tabbed_button' :
-				break;
-			case 'Image_ipad_sort_button' :
-				break;
-			case 'Image_ipad_tab_bar' :
-				break;
-			case 'Image_ipad_check_off' :
-				break;
-			case 'Image_ipad_radio_off' :
-				break;
-			case 'Image_ipad_checkbox_off' :
-				break;
-			case 'Image_iphone_table' :
-				break;
-			case 'Image_iphone_table_w_buttons' :
-				break;
-			case 'Image_iphone_table_w_icons' :
-				break;
-			case 'Image_iphone_list' :
-				break;
-			case 'Image_iphone_gray_grad_list' :
-				break;
-			case 'Image_iphone_alert_dialog' :
-				break;
-			case 'Image_iphone_dialog' :
-				break;
-			case 'Image_iphone_scroll_pane' :
-				break;
-			case 'Image_iphone_switch_off' :
-				break;
-			case 'Image_iphone_large_tabbed_button' :
-				break;
-			case 'Image_iphone_sort_button' :
-				break;
-			case 'Image_iphone_tab_bar' :
-				break;
-			case 'Image_iphone_picker_multi' :
-				break;
-			case 'Image_iphone_picker_web' :
-				break;
-			case 'Image_iphone_check_off' :
-				break;
-			case 'Image_iphone_radio_off' :
-				break;
-			case 'Image_iphone_checkbox_off' :
+			case 'ERDEntityBlock4' :
+				var st = getFillColor(p, a);
+				var th = p.Name_h * scale;
+				st = st.replace('fillColor', 'swimlaneFillColor');
+				
+				if (st == '')
+				{
+					st = 'swimlaneFillColor=#ffffff;'
+				}
+				
+				v.style += 'swimlane;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;' + st +
+					'startSize=' + th + ';' +
+					getOpacity(p, a) +
+					getStrokeColor(p, a) + 
+					getStrokeWidth(p) +
+					getStrokeStyle(p) +
+					getLabelStyle(p.Name);
+
+				if (p.ShadedHeader)
+				{
+					v.style += 'fillColor=#e0e0e0;';
+				}
+				else
+				{
+					v.style += getFillColor(p, a);
+				}
+				
+				v.value = convertText(p.Name);
+				
+				var item = new Array();
+				var key = new Array();
+				var type = new Array();
+				var currH = th;
+				var keyW = 30;
+				var typeW = 40;
+				
+				if (p.Column1 != null)
+				{
+					keyW = p.Column1 * scale;
+				}
+				
+				if (p.Column2 != null)
+				{
+					typeW = p.Column2 * scale;
+				}
+				
+				for (var i = 0; i < p.Fields; i++)
+				{
+					var itemH = 0;
+
+					key[i] = new mxCell('', new mxGeometry(0, currH, keyW, p['Key' + (i + 1) + '_h'] * scale), 'strokeColor=none;part=1;resizeHeight=0;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					key[i].vertex = true;
+					v.insert(key[i]);
+					key[i].style += st +
+						getFontSize(p['Key' + (i + 1)]) +
+						getFontColor(p['Key' + (i + 1)]) + 
+						getFontStyle(p['Key' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						key[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						key[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					key[i].value = convertText(p['Key' + (i + 1)]);
+					
+					item[i] = new mxCell('', new mxGeometry(keyW, currH, w - keyW - typeW, p['Field' + (i + 1) + '_h'] * scale), 'shape=partialRectangle;top=0;right=0;bottom=0;part=1;resizeHeight=0;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					item[i].vertex = true;
+					v.insert(item[i]);
+					item[i].style += st +
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getFontSize(p['Field' + (i + 1)]) +
+						getFontColor(p['Field' + (i + 1)]) + 
+						getFontStyle(p['Field' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						item[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						item[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					item[i].value = convertText(p['Field' + (i + 1)]);
+					
+					type[i] = new mxCell('', new mxGeometry(w - typeW, currH, typeW, p['Type' + (i + 1) + '_h'] * scale), 'shape=partialRectangle;top=0;right=0;bottom=0;part=1;resizeHeight=0;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;');
+					type[i].vertex = true;
+					v.insert(type[i]);
+					type[i].style += st +
+						getStrokeColor(p, a) + 
+						getStrokeWidth(p) +
+						getStrokeStyle(p) +
+						getFontSize(p['Type' + (i + 1)]) +
+						getFontColor(p['Type' + (i + 1)]) + 
+						getFontStyle(p['Type' + (i + 1)]);
+
+					if (p.AltRows == 1 && (i % 2 != 0))
+					{
+						type[i].style += 'fillColor=#000000;fillOpacity=5;';
+					}
+					else
+					{
+						type[i].style += 'fillColor=none;' + 
+							getOpacity(p, a);
+					}
+
+					type[i].value = convertText(p['Type' + (i + 1)]);
+					
+					currH += p['Key' + (i + 1) + '_h'] * scale;
+				}
+				
 				break;
 		}
 

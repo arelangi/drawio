@@ -12,12 +12,12 @@ var StorageDialog = function(editorUi, fn, rowLimit)
 	div.style.paddingTop = '0px';
 	div.style.paddingBottom = '20px';
 	
-	var elt = editorUi.addLanguageMenu(div);
+	var elt = editorUi.addLanguageMenu(div, true);
 	var bottom = '28px';
 	
 	if (elt != null)
 	{
-		elt.style.bottom = bottom;
+		elt.style.bottom = parseInt(bottom) - 2 + 'px';
 	}
 	
 	if (!editorUi.isOffline() && editorUi.getServiceCount() > 1)
@@ -448,7 +448,7 @@ var SplashDialog = function(editorUi)
 	var div = document.createElement('div');
 	div.style.textAlign = 'center';
 	
-	editorUi.addLanguageMenu(div);
+	editorUi.addLanguageMenu(div, true);
 	var help = null;
 	var serviceCount = editorUi.getServiceCount();
 	
@@ -1026,7 +1026,7 @@ var EmbedDialog = function(editorUi, result, timeout, ignoreSize, previewFn)
 				text.value = result;
 				text.focus();
 					
-				if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+				if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 				{
 					text.select();
 				}
@@ -1195,7 +1195,7 @@ var EmbedDialog = function(editorUi, result, timeout, ignoreSize, previewFn)
 	{
 		text.focus();
 		
-		if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+		if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 		{
 			text.select();
 		}
@@ -1261,7 +1261,7 @@ var GoogleSitesDialog = function(editorUi, publicUrl)
 	{
 		gadgetInput.focus();
 		
-		if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+		if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 		{
 			gadgetInput.select();
 		}
@@ -1482,7 +1482,7 @@ var GoogleSitesDialog = function(editorUi, publicUrl)
 	{
 		gadgetInput.focus();
 		
-		if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+		if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 		{
 			gadgetInput.select();
 		}
@@ -2508,9 +2508,11 @@ var ParseDialog = function(editorUi, title)
 /**
  * Constructs a new dialog for creating files from templates.
  */
-var NewDialog = function(editorUi, compact, showName, callback)
+var NewDialog = function(editorUi, compact, showName, callback, createOnly)
 {
 	showName = (showName != null) ? showName : true;
+	createOnly = (createOnly != null) ? createOnly : false;
+	
 	var outer = document.createElement('div');
 	outer.style.height = '100%';
 	
@@ -2602,7 +2604,7 @@ var NewDialog = function(editorUi, compact, showName, callback)
 		{
 			nameInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				nameInput.select();
 			}
@@ -2929,12 +2931,12 @@ var NewDialog = function(editorUi, compact, showName, callback)
 	
 	cancelBtn.className = 'geBtn';
 	
-	if (editorUi.editor.cancelFirst)
+	if (editorUi.editor.cancelFirst && !createOnly)
 	{
 		btns.appendChild(cancelBtn);
 	}
 	
-	if (!compact && !editorUi.isOffline() && showName && callback == null)
+	if (!compact && !editorUi.isOffline() && showName && callback == null && !createOnly)
 	{
 		var helpBtn = mxUtils.button(mxResources.get('help'), function()
 		{
@@ -2945,7 +2947,7 @@ var NewDialog = function(editorUi, compact, showName, callback)
 		btns.appendChild(helpBtn);
 	}
 
-	if (!compact && urlParams['embed'] != '1')
+	if (!compact && urlParams['embed'] != '1' && !createOnly)
 	{
 		var fromTmpBtn = mxUtils.button(mxResources.get('fromTemplateUrl'), function()
 		{
@@ -2976,7 +2978,7 @@ var NewDialog = function(editorUi, compact, showName, callback)
 	
 	btns.appendChild(createButton);
 	
-	if (!editorUi.editor.cancelFirst && callback == null)
+	if (!editorUi.editor.cancelFirst && callback == null && !createOnly)
 	{
 		btns.appendChild(cancelBtn);
 	}
@@ -3021,7 +3023,7 @@ var CreateDialog = function(editorUi, title, createFn, cancelFn, dlgTitle, btnLa
 	{
 		nameInput.focus();
 		
-		if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+		if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 		{
 			nameInput.select();
 		}
@@ -4051,7 +4053,7 @@ var LinkDialog = function(editorUi, initialValue, btnLabel, fn, showPages)
 		{
 			linkInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				linkInput.select();
 			}
@@ -4357,7 +4359,7 @@ var AboutDialog = function(editorUi)
 
 	var small = document.createElement('small');
 	small.style.color = '#505050';
-	small.innerHTML = '&copy; 2005-2017 <a href="https://www.jgraph.com/" style="color:inherit;" target="_blank">JGraph Ltd</a>.<br>All Rights Reserved.';
+	small.innerHTML = '&copy; 2005-2017 <a href="https://about.draw.io/" style="color:inherit;" target="_blank">JGraph Ltd</a>.<br>All Rights Reserved.';
 	div.appendChild(small);
 	
 	mxEvent.addListener(div, 'click', function(e)
@@ -5670,7 +5672,7 @@ var FindWindow = function(ui, x, y, w, h)
 		{
 			searchInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				searchInput.select();
 			}
@@ -5849,7 +5851,7 @@ var TagsWindow = function(editorUi, x, y, w, h)
 		{
 			searchInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				searchInput.select();
 			}
@@ -5908,7 +5910,11 @@ var AuthDialog = function(editorUi, peer, showRememberOption, fn)
 		service = mxResources.get('github');
 		img.src = IMAGE_PATH + '/github-logo-white.svg';
 	}
-	//TODO Trello?
+	else if (peer == editorUi.trello)
+	{
+		service = mxResources.get('trello');
+		img.src = IMAGE_PATH + '/trello-logo-white.svg';
+	}
 	
 	var p = document.createElement('p');
 	mxUtils.write(p, mxResources.get('authorizeThisAppIn', [service]));
@@ -6896,7 +6902,7 @@ var LibraryDialog = function(editorUi, name, library, initialImages, file, mode)
 		{
 			nameInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				nameInput.select();
 			}

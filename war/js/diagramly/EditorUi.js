@@ -884,21 +884,6 @@
 		var js = 'https://www.draw.io/js/viewer.min.js';
 		var s = '';
 	
-		// LATER: Merge common code with EmbedDialog
-		if (graph != null)
-		{
-			// Embed script only used if no redirect
-			if (redirect == null)
-			{
-				var s = this.getBasenames().join(';');
-				
-				if (s.length > 0)
-				{
-					js = 'https://www.draw.io/embed2.js?s=' + s;
-				}
-			}
-		}
-	
 		// Makes XHTML compatible
 		if (redirect != null)
 		{
@@ -2479,19 +2464,6 @@
 	{
 		return this.currentFile;
 	};
-
-	/**
-	 * Translates this point by the given vector.
-	 * 
-	 * @param {number} dx X-coordinate of the translation.
-	 * @param {number} dy Y-coordinate of the translation.
-	 */
-	EditorUi.prototype.isDiagramEmpty = function()
-	{
-		var model = this.editor.graph.getModel();
-		
-		return model.getChildCount(model.root) == 1 && model.getChildCount(model.getChildAt(model.root, 0)) == 0;
-	};
 	
 	/**
 	 * Handling for canvas export.
@@ -2728,36 +2700,7 @@
 					if (mimeType != null && mimeType.substring(0, 6) == 'image/' &&
 						(mimeType.substring(0, 9) != 'image/svg' || mxClient.IS_SVG))
 					{
-						// In Google Chrome 60 the code from below produces a blank window 
-						if (mxClient.IS_GC || mxClient.IS_EDGE || document.documentMode == 11 || document.documentMode == 10)
-						{
-							var win = window.open('about:blank');
-							
-							if (win == null)
-							{
-								mxUtils.popup(data, true);
-							}
-							else
-							{
-								win.document.write('<html><img src="data:' +
-									mimeType + ((base64Encoded) ? ';base64,' +
-									data : ';charset=utf8,' + encodeURIComponent(data)) +
-									'"/></html>');
-								win.document.close();
-							}
-						}
-						else
-						{
-							// win.open is workaround for cleared contents in Chrome after delay
-							// when using location.replace
-							var win = window.open('data:' + mimeType + ((base64Encoded) ? ';base64,' +
-									data : ';charset=utf8,' + encodeURIComponent(data)));
-							
-							if (win == null)
-							{
-								mxUtils.popup(data, true);
-							}
-						}
+						this.openInNewWindow(data, mimeType, base64Encoded);
 					}
 					else
 					{
@@ -2805,6 +2748,154 @@
 		this.showDialog(dlg.container, 380, (count > 4) ? 390 : 270, true, true);
 		dlg.init();
 	};
+	
+	/**
+	 * 
+	 */
+	EditorUi.prototype.openInNewWindow = function(data, mimeType, base64Encoded)
+	{
+		// In Google Chrome 60 the code from below produces a blank window 
+		if (mxClient.IS_GC || mxClient.IS_EDGE || document.documentMode == 11 || document.documentMode == 10)
+		{
+			var win = window.open('about:blank');
+			
+			if (win == null)
+			{
+				mxUtils.popup(data, true);
+			}
+			else
+			{
+				win.document.write('<html><img src="data:' +
+					mimeType + ((base64Encoded) ? ';base64,' +
+					data : ';charset=utf8,' + encodeURIComponent(data)) +
+					'"/></html>');
+				win.document.close();
+			}
+		}
+		else
+		{
+			// win.open is workaround for cleared contents in Chrome after delay
+			// when using location.replace
+			var win = window.open('data:' + mimeType + ((base64Encoded) ? ';base64,' +
+					data : ';charset=utf8,' + encodeURIComponent(data)));
+			
+			if (win == null)
+			{
+				mxUtils.popup(data, true);
+			}
+		}
+	};
+	
+	var editoUiAddChromelessToolbarItems = EditorUi.prototype.addChromelessToolbarItems;
+
+	/**
+	 * Creates a temporary graph instance for rendering off-screen content.
+	 */
+	EditorUi.prototype.addChromelessToolbarItems = function(addButton)
+	{
+		if (this.isExportToCanvas())
+		{
+			this.exportDialog = null;
+			
+			var exportButton = addButton(mxUtils.bind(this, function(evt)
+			{
+				var clickHandler = mxUtils.bind(this, function()
+				{
+					mxEvent.removeListener(this.editor.graph.container, 'click', clickHandler);
+					
+					if (this.exportDialog != null)
+					{
+						this.exportDialog.parentNode.removeChild(this.exportDialog);
+						this.exportDialog = null;
+					}
+				});
+				
+				if (this.exportDialog != null)
+				{
+					clickHandler.apply(this);
+				}
+				else
+				{
+					this.exportDialog = document.createElement('div');
+					var r = exportButton.getBoundingClientRect();
+					
+					mxUtils.setPrefixedStyle(this.exportDialog.style, 'borderRadius', '5px');
+					this.exportDialog.style.position = 'fixed';
+					this.exportDialog.style.textAlign = 'center';
+					this.exportDialog.style.fontFamily = 'Helvetica,Arial';
+					this.exportDialog.style.backgroundColor = '#000000';
+					this.exportDialog.style.width = '50px';
+					this.exportDialog.style.height = '50px';
+					this.exportDialog.style.padding = '4px 2px 4px 2px';
+					this.exportDialog.style.color = '#ffffff';
+					mxUtils.setOpacity(this.exportDialog, 70);
+					this.exportDialog.style.left = r.left + 'px';
+					this.exportDialog.style.bottom = parseInt(this.chromelessToolbar.style.bottom) +
+						this.chromelessToolbar.offsetHeight + 4 + 'px';
+					
+					// Puts the dialog on top of the container z-index
+					var style = mxUtils.getCurrentStyle(this.editor.graph.container);
+					this.exportDialog.style.zIndex = style.zIndex;
+					
+					var spinner = new Spinner({
+						lines: 8, // The number of lines to draw
+						length: 6, // The length of each line
+						width: 5, // The line thickness
+						radius: 6, // The radius of the inner circle
+						rotate: 0, // The rotation offset
+						color: '#fff', // #rgb or #rrggbb
+						speed: 1.5, // Rounds per second
+						trail: 60, // Afterglow percentage
+						shadow: false, // Whether to render a shadow
+						hwaccel: false, // Whether to use hardware acceleration
+						top: '28px',
+						zIndex: 2e9 // The z-index (defaults to 2000000000)
+					});
+					spinner.spin(this.exportDialog);
+					
+				   	this.exportToCanvas(mxUtils.bind(this, function(canvas)
+				   	{
+				   		spinner.stop();
+				   		
+						this.exportDialog.style.width = 'auto';
+						this.exportDialog.style.height = 'auto';
+						this.exportDialog.style.padding = '10px';
+				   		
+			   	   	    var data = this.createImageDataUri(canvas, null, 'png');
+			   	   	    var img = document.createElement('img');
+			   	   	    
+			   	   	    img.style.maxWidth = '140px';
+			   	   	    img.style.maxHeight = '140px';
+			   	   	    img.style.cursor = 'pointer';
+			   	   	    
+			   	   	    img.setAttribute('title', mxResources.get('openInNewWindow'));
+			   	   	    img.setAttribute('border', '0');
+			   	   	    img.setAttribute('src', data);
+			   	   	    
+			   	   	    this.exportDialog.appendChild(img);
+
+						mxEvent.addListener(img, 'click', mxUtils.bind(this, function()
+						{
+							this.openInNewWindow(data.substring(data.indexOf(',') + 1), 'image/png', true);
+							clickHandler.apply(this, arguments);
+						}));
+				   	}), null, this.thumbImageCache, null, mxUtils.bind(this, function(e)
+				   	{
+				   		this.spinner.stop();
+				   		this.handleError(e);
+				   	}));
+					
+					mxEvent.addListener(this.editor.graph.container, 'click', clickHandler);
+				   	document.body.appendChild(this.exportDialog);
+				}
+				
+				mxEvent.consume(evt);
+			}), Editor.cameraLargeImage, mxResources.get('export'));
+		}
+
+		editoUiAddChromelessToolbarItems.apply(this, arguments);
+	};
+
 
 	/**
 	 * Translates this point by the given vector.
@@ -3397,12 +3488,11 @@
 			((tb != '') ? 'border:1px solid transparent;' : '') +
 			'" data-mxgraph="' + mxUtils.htmlEntities(JSON.stringify(data)) + '"></div>';
 		
-		var sParam = (s.length > 0) ? 's=' + s.join(';') : '';
-		var fetchParam = (publicUrl != null) ? 'fetch=' + encodeURIComponent(publicUrl) : '';
-		var s2 = (sParam.length > 0 || fetchParam.length > 0) ?
+		var fetchParam = (publicUrl != null) ? '&fetch=' + encodeURIComponent(publicUrl) : '';
+		var s2 = (fetchParam.length > 0) ?
 			(((urlParams['dev'] == '1') ?
-			'https://test.draw.io/embed2.js?dev=1&' + sParam :
-			'https://www.draw.io/embed2.js?' + sParam)) + '&' + fetchParam :
+			'https://test.draw.io/embed2.js?dev=1' :
+			'https://www.draw.io/embed2.js?')) + fetchParam :
 			(((urlParams['dev'] == '1') ?
 			'https://test.draw.io/js/viewer.min.js' :
 			'https://www.draw.io/js/viewer.min.js'));
@@ -3682,7 +3772,7 @@
 		{
 			widthInput.focus();
 			
-			if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+			if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 			{
 				widthInput.select();
 			}
@@ -3863,7 +3953,7 @@
 		this.showDialog(dlg.container, 320, height, true, true);
 		zoomInput.focus();
 		
-		if (mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
+		if (mxClient.IS_GC || mxClient.IS_FF || document.documentMode >= 5 || mxClient.IS_QUIRKS)
 		{
 			zoomInput.select();
 		}
@@ -6309,6 +6399,37 @@
 			}
 		};
 		
+		// Passes current page to editor window
+		var editorGetEditBlankUrl = ui.editor.getEditBlankUrl;
+		
+		this.editor.getEditBlankUrl = function(params)
+		{
+			params = (params != null) ? params : '';
+			
+			if (ui.pages != null && ui.currentPage != null)
+			{
+				for (var i = 0; i < ui.pages.length; i++)
+				{
+					if (ui.pages[i] == ui.currentPage)
+					{
+						if (i > 0)
+						{
+							params += ((params.length > 0) ? '&' : '?') + 'page=' + i;
+						}
+						
+						break;
+					}
+				}
+			}
+			
+			if (urlParams['dev'] == '1')
+			{
+				params += ((params.length > 0) ? '&' : '?') + 'dev=1&drawdev=1';
+			}
+			
+			return editorGetEditBlankUrl.apply(this, arguments);
+		};
+
 		// For chromeless mode and lightbox mode in viewer
 		// Must be overridden before supercall to be applied
 		// in case of chromeless initialization
@@ -6912,7 +7033,7 @@
 
 		// Installs drag and drop handler for files
 		// Enables dropping files
-		if (Graph.fileSupport)
+		if (Graph.fileSupport && !this.editor.chromeless)
 		{
 			// Setup the dnd listeners
 			var dropElt = null;
@@ -8406,6 +8527,44 @@
 					}
 					
 					return;
+				}
+				else if (data.action == 'loadFile' && this.loadFile)
+				{
+					if (data.type == 'T')
+					{
+						if (this.trello == null)
+						{
+							this.addListener('clientLoaded', function() {
+								this.loadFile(data.type + data.file, true);
+							});
+						}
+						else
+						{
+							this.loadFile(data.type + data.file, true);
+						}
+					}
+				}
+				else if (data.action == 'newFile' && this.createFile)
+				{
+					if (data.type == 'T')
+					{
+						if (this.trello == null)
+						{
+							this.addListener('clientLoaded', function() {
+								this.createFile(data.name, this.getFileData(/(\.xml)$/i.test(name) ||
+										name.indexOf('.') < 0, /(\.svg)$/i.test(name),
+										/(\.html)$/i.test(name)),
+										null, App.MODE_TRELLO, null, true, data.folderId);
+							});
+						}
+						else
+						{
+							this.createFile(data.name, this.getFileData(/(\.xml)$/i.test(name) ||
+									name.indexOf('.') < 0, /(\.svg)$/i.test(name),
+									/(\.html)$/i.test(name)),
+									null, App.MODE_TRELLO, null, true, data.folderId);
+						}
+					}
 				}
 				else if (data.action == 'load')
 				{

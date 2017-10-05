@@ -76,7 +76,10 @@ App = function(editor, container, lightbox)
 	}
 
 	// Handles opening files via drag and drop
-	this.addFileDropHandler([document]);
+	if (!this.editor.chromeless)
+	{
+		this.addFileDropHandler([document]);
+	}
 	
 	// Process the queue for waiting plugins
 	if (App.DrawPlugins != null)
@@ -162,7 +165,7 @@ App.MODE_TRELLO = 'trello';
 App.DROPBOX_APPKEY = 'libwls2fa9szdji';
 
 /**
- * Sets the delay for autosave in milliseconds. Default is 2000.
+ * Sets URL to load the Dropbox SDK from
  */
 App.DROPBOX_URL = 'https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js';
 
@@ -399,7 +402,7 @@ App.getStoredMode = function()
  * 
  * Optional callback is called with the app instance.
  */
-App.main = function(callback)
+App.main = function(callback, createUi)
 {
 	var lastErrorMessage = null;
 	
@@ -642,7 +645,7 @@ App.main = function(callback)
 		}
 
 		// Main
-		var ui = new App(new Editor(urlParams['chrome'] == '0'));
+		var ui = (createUi != null) ? createUi() : new App(new Editor(urlParams['chrome'] == '0'));
 		
 		if (window.mxscript != null)
 		{
@@ -777,6 +780,10 @@ App.prototype.timeout = 25000;
 if (urlParams['embed'] != '1')
 {
 	App.prototype.menubarHeight = 60;
+}
+else
+{
+	App.prototype.footerHeight = 0;
 }
 
 /**
@@ -2114,38 +2121,71 @@ App.prototype.start = function()
 			{
 				// Starts in client mode and waits for data
 				if (urlParams['client'] == '1' && (window.location.hash == null ||
-					window.location.hash.length == 0))
+					window.location.hash.length == 0 || window.location.hash.substring(0, 2) == '#P'))
 				{
+					var doLoadFile = mxUtils.bind(this, function(xml)
+					{
+						// Extracts graph model from PNG
+						if (xml.substring(0, 22) == 'data:image/png;base64,')
+						{
+							xml = this.extractGraphModelFromPng(xml);
+						}
+						
+						var title = urlParams['title'];
+						
+						if (title != null)
+						{
+							title = decodeURIComponent(title);
+						}
+						else
+						{
+							title = this.defaultFilename;
+						}
+						
+						var file = new LocalFile(this, xml, title, true);
+						
+						if (window.location.hash != null && window.location.hash.substring(0, 2) == '#P')
+						{
+							file.getHash = function()
+							{
+								return window.location.hash.substring(1);
+							};
+						}
+						
+						this.fileLoaded(file);
+						this.getCurrentFile().setModified(!this.editor.chromeless);
+					});
+
 					var parent = window.opener || window.parent;
 					
 					if (parent != window)
 					{
-						this.installMessageHandler(mxUtils.bind(this, function(xml, evt)
+						var value = urlParams['create'];
+						
+						if (value != null)
 						{
-							// Ignores messages from other windows
-							if (evt.source == parent)
+							doLoadFile(parent[decodeURIComponent(value)]);
+						}
+						else
+						{
+							value = urlParams['data'];
+							
+							if (value != null)
 							{
-								// Extracts graph model from PNG
-								if (xml.substring(0, 22) == 'data:image/png;base64,')
-								{
-									xml = this.extractGraphModelFromPng(xml);
-								}
-								
-								var title = urlParams['title'];
-								
-								if (title != null)
-								{
-									title = decodeURIComponent(title);
-								}
-								else
-								{
-									title = this.defaultFilename;
-								}
-								
-								this.fileLoaded(new LocalFile(this, xml, title, true));
-								this.getCurrentFile().setModified(!this.editor.chromeless);
+								doLoadFile(decodeURIComponent(value));
 							}
-						}));
+							else
+							{
+								this.installMessageHandler(mxUtils.bind(this, function(xml, evt)
+								{
+									// Ignores messages from other windows
+									if (evt.source == parent)
+									{
+										doLoadFile(xml);
+									}
+								}));
+							}
+						}
 					}
 				}
 				// Checks if no earlier loading errors are showing
@@ -2410,7 +2450,7 @@ App.prototype.showSplash = function(force)
  * @param {number} dx X-coordinate of the translation.
  * @param {number} dy Y-coordinate of the translation.
  */
-App.prototype.addLanguageMenu = function(elt)
+App.prototype.addLanguageMenu = function(elt, addLabel)
 {
 	var img = null;
 	
@@ -2427,6 +2467,21 @@ App.prototype.addLanguageMenu = function(elt)
 			img.style.cursor = 'pointer';
 			img.style.bottom = '20px';
 			img.style.right = '20px';
+			
+			if (addLabel)
+			{
+				img.style.direction = 'rtl';
+				img.style.textAlign = 'right';
+				img.style.right = '24px';
+
+				var label = document.createElement('span');
+				label.style.display = 'inline-block';
+				label.style.fontSize = '12px';
+				label.style.margin = '5px 24px 0 0';
+				label.style.color = 'gray';
+				mxUtils.write(label, mxResources.get('language'));
+				img.appendChild(label);
+			}
 			
 			mxEvent.addListener(img, 'click', mxUtils.bind(this, function(evt)
 			{
@@ -2979,7 +3034,8 @@ EditorUi.prototype.loadTemplate = function(url, onload, onerror)
 	
 	if (!this.isCorsEnabledForUrl(realUrl))
 	{
-		realUrl = PROXY_URL + '?url=' + encodeURIComponent(url);
+		var nocache = 't=' + new Date().getTime();
+		realUrl = PROXY_URL + '?url=' + encodeURIComponent(url) + '&' + nocache;
 	}
 	
 	this.loadUrl(realUrl, mxUtils.bind(this, function(data)
@@ -3693,7 +3749,8 @@ App.prototype.restoreLibraries = function()
 									
 									if (!this.isCorsEnabledForUrl(realUrl))
 									{
-										realUrl = PROXY_URL + '?url=' + encodeURIComponent(url);
+										var nocache = 't=' + new Date().getTime();
+										realUrl = PROXY_URL + '?url=' + encodeURIComponent(url) + '&' + nocache;
 									}
 									
 									// Uses proxy to avoid CORS issues
@@ -4439,7 +4496,7 @@ App.prototype.updateHeader = function()
 				}
 				else if (mode == App.MODE_TRELLO)
 				{
-					this.appIcon.style.backgroundImage = 'url(' + IMAGE_PATH + '/trello-logo-white.svg)';
+					this.appIcon.style.backgroundImage = 'url(' + IMAGE_PATH + '/trello-logo-white-orange.svg)';
 				}
 			}
 		}));

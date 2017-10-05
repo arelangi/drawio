@@ -1,3 +1,59 @@
+03-OCT-2017: 7.5.0
+
+- Updates Atlassian icons
+- Improvements for Lucidchart import
+- Adds toolbar and border URL parameter for chromeless mode
+
+29-SEP-2017: 7.4.9
+
+- Fixes ignored current page in window lightbox
+- Fixes cross-origin frame access in fallback
+
+28-SEP-2017: 7.4.8
+
+- Adds #P for URL parameters (beta)
+- Bypasses caches for proxy servlet
+- Uses mxGraph 3.7.6 beta 2
+- Checks existing storage file before rename
+
+26-SEP-2017: 7.4.7
+
+- Adds components for Trello Power-Up
+
+25-SEP-2017: 7.4.6
+
+- Improves Gliffy import
+- Removes drag and drop handlers in lightbox
+- Fixes selection state in Chrome after closing dialogs
+
+25-SEP-2017: 7.4.5
+
+- Improves Gliffy import
+
+22-SEP-2017: 7.4.4
+
+- Restores latest Dropbox SDK
+- Improves CORS headers configuration
+- Fixes ignored nav, highlight and page in tabbed lightbox for viewer
+
+19-SEP-2017: 7.4.3
+
+- Improvements for Trello integration
+
+19-SEP-2017: 7.4.2
+
+- Hard codes Dropbox SDK version to work around their bug
+
+18-SEP-2017: 7.4.1
+
+- Hides footer in embed mode
+- Restores feedback form in help menu
+
+18-SEP-2017: 7.4.0
+
+- Removes feedback form in help menu
+- Adds client-side image export in lightbox
+
 13-SEP-2017: 7.3.9
 
 - Fixes missing insert page tab
